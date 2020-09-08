@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import usePageOnLoad from '../../hooks/page/usePageOnLoad';
+import { useSelector, useDispatch } from 'react-redux';
 import i18n from '../../i18n/i18n';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import useUserFetchCurrentUser from '../../hooks/user/useUserFetchCurrentUser';
@@ -138,8 +139,21 @@ export default function Index(props) {
 		isDeliveryAvailabilitySectionVisible,
 		setIsDeliveryAvailabilitySectionVisible,
 	] = useState(true);
-
+	const { currentLanguage } = useSelector((state) => state.cart)
 	const [prop, setProp] = useState(props)
+
+	const _process = async () => {
+		const specialCruises = await getSpecialCruises(props.currentBranch.id, currentLanguage);
+		const chefChoices = await getChefChoices(props.currentBranch.id, currentLanguage);
+		const chefStory = await getChefStory(props.currentBranch.id, currentLanguage);
+		console.log(specialCruises,chefChoices, chefStory, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+		setProp({
+			...prop,
+			specialCruises,
+			chefChoices,
+			chefStory
+		})
+	}
 	// set which section to show and hide
 	useEffect(() => {
 		if (!currentBranch.contentWidgets) return;
@@ -164,18 +178,9 @@ export default function Index(props) {
 		);
 	}, [currentBranch]);
 
-	useEffect(async () => {
-		let language = i18n.language
-		const specialCruises = await getSpecialCruises(props.currentBranch.id, language);
-		const chefChoices = await getChefChoices(props.currentBranch.id, language);
-		const chefStory = await getChefStory(props.currentBranch.id, language);
-		setProp({
-			...prop,
-			specialCruises,
-			chefChoices,
-			chefStory
-		})
-	}, [])
+	useEffect(() => {
+		_process()
+	}, [currentLanguage])
 
 	return (
 		<DefaultLayout>

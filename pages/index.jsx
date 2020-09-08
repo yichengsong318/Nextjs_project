@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { i18n, withTranslation } from '../i18n/i18n';
 import usePageOnLoad from '../hooks/page/usePageOnLoad';
 import DefaultLayout from '../layouts/DefaultLayout';
@@ -96,7 +97,6 @@ export async function getServerSideProps() {
 	// get current branch
 	const { branches } = settings;
 	const currentBranch = branches.filter((branch) => branch.primaryBranch)[0];
-	console.log(currentBranch.id, "currentbranch Id")
 	const specialCruises = await getSpecialCruises(currentBranch.id);
 	const chefChoices = await getChefChoices(currentBranch.id);
 	const appResources = await getAppResources(currentBranch.id);
@@ -125,8 +125,21 @@ function Index(props) {
 		isDeliveryAvailabilitySectionVisible,
 		setIsDeliveryAvailabilitySectionVisible,
 	] = useState(true);
+	const { currentLanguage } = useSelector((state) => state.cart)
 	const [prop, setProp] = useState(props)
 	// set which section to show and hide
+	const _process = async () => {
+		const specialCruises = await getSpecialCruises(props.currentBranch.id, currentLanguage);
+		const chefChoices = await getChefChoices(props.currentBranch.id, currentLanguage);
+		const chefStory = await getChefStory(props.currentBranch.id, currentLanguage);
+		console.log(specialCruises, chefChoices, chefStory, currentLanguage, "currentlanguage")
+		setProp({
+			...prop,
+			specialCruises,
+			chefChoices,
+			chefStory
+		})
+	}
 
 	useEffect(() => {
 		if (!currentBranch.contentWidgets) return;
@@ -136,6 +149,10 @@ function Index(props) {
 		});
 		setContentWidgets(contentWidgets);
 	}, [currentBranch]);
+
+	useEffect(() => {
+		_process()
+	}, [])
 
 	// set if delivery availability section is visible
 	useEffect(() => {
@@ -148,21 +165,9 @@ function Index(props) {
 		);
 	}, [currentBranch]);
 
-	useEffect(async () => {
-		let language = i18n.language
-		const specialCruises = await getSpecialCruises(props.currentBranch.id, language);
-		const chefChoices = await getChefChoices(props.currentBranch.id, language);
-		const chefStory = await getChefStory(props.currentBranch.id, language);
-
-		setProp({
-			...prop,
-			specialCruises,
-			chefChoices,
-			chefStory
-		})
-	}, [])
-
-	console.log(prop.specialCruises, "whatis--")
+	useEffect(() => {
+		_process()
+	},[currentLanguage])
 
 	return (
 		<DefaultLayout>

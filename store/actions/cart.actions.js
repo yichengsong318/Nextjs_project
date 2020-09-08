@@ -7,6 +7,15 @@ export const toggleProductDetailsModal = () => {
     }
 }
 
+export const changeLanguage = (language) => {
+    return {
+        type : cartConstants.SET_LANGUAGE,
+        payload: {
+            language
+        }
+    }
+}
+
 export const toggleProductDetailsModalLoader = () => {
     return {
         type: cartConstants.TOGGLE_PRODUCT_DETAILS_MODAL_LOADER,

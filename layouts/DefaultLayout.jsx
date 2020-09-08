@@ -8,9 +8,8 @@ import AddInformation from '../components/modal/addInformation';
 const DefaultLayout = ({ children }) => {
 	const [start, setStart] = useState(true)
 	useEffect(() => {
-		if (localStorage.getItem("LOCATION_ALLOWED")) {
+		if (localStorage.getItem("position")) {
 			setStart(true)
-			console.log(localStorage.getItem("LOCATION_ALLOWED", "localstorage"))
 		} else {
 			setStart(false)
 		}

@@ -1,4 +1,5 @@
 import cartConstants from '../../_constants/cart.constants';
+import { i18n } from '../../i18n/i18n';
 
 const initialState = {
     isProductDetailsActive: false,
@@ -8,6 +9,7 @@ const initialState = {
     isCartDetailsModalActive: false,
     productDetails: {},
     productsBatch: [],
+    currentLanguage: i18n.language || 'en',
     currentActiveProductId: 0,
     currentActiveProductIndex: 0,
     currentCustomizeProductMode: 'add', // add or edit
@@ -26,6 +28,11 @@ const initialState = {
 
 export default function cart(state = initialState, action) {
     switch (action.type) {
+        case cartConstants.SET_LANGUAGE:
+            return {
+                ...state,
+                currentLanguage: action.payload.language
+            };
         case cartConstants.TOGGLE_CUSTOMIZE_PRODUCT_MODAL:
             return {
                 ...state,
@@ -40,72 +47,72 @@ export default function cart(state = initialState, action) {
             return {
                 ...state,
                 isProductDetailsLoaderActive: !state.isProductDetailsLoaderActive
-            }
+            };
         case cartConstants.TOGGLE_CONFIRM_PRODUCT_MODAL:
             return {
                 ...state,
                 isConfirmProductModalActive: !state.isConfirmProductModalActive
-            }
+            };
         case cartConstants.TOGGLE_CART_DETAILS_MODAL:
             return {
                 ...state,
                 isCartDetailsModalActive: !state.isCartDetailsModalActive
-            }
+            };
         case cartConstants.SET_PRODUCT_DETAILS:
             return {
                 ...state,
                 productDetails: action.payload.productDetails
-            }
+            };
         case cartConstants.SET_PRODUCTS_BATCH:
             return {
                 ...state,
                 productsBatch: action.payload.productsBatch
-            }
+            };
         case cartConstants.SET_CURRENT_ACTIVE_PRODUCT_INDEX:
             return {
                 ...state,
                 currentActiveProductIndex: action.payload.index
-            }
+            };
         case cartConstants.SET_CURRENT_ACTIVE_PRODUCT_ID:
             return {
                 ...state,
                 currentActiveProductId: action.payload.id
-            }
+            };
         case cartConstants.SET_PRODUCT_DETAILS_TRIGGER:
             return {
                 ...state,
                 isProductDetailsTrigger: !state.isProductDetailsTrigger
-            }
+            };
         case cartConstants.SET_MENU_DETAILS_TRIGGER:
             return {
                 ...state,
                 isMenuDetailsTrigger: !state.isMenuDetailsTrigger
-            }
+            };
         case cartConstants.SET_DELIVERY_TYPE:
             return {
                 ...state,
                 deliveryType: action.payload.type
-            }
+            };
         case cartConstants.SET_SELECTED_PRICE:
             return {
                 ...state,
                 selectedPrice: action.payload.selectedPrice
-            }
+            };
         case cartConstants.SET_SELECTED_TOPPINGS:
             return {
                 ...state,
                 selectedProductChoices: action.payload.selectedToppings
-            }
+            };
         case cartConstants.SET_ORDER_ITEMS:
             return {
                 ...state,
                 orderItems: action.payload.items
-            }
+            };
         case cartConstants.SET_COMBO_ORDER_ITEMS:
             return {
                 ...state,
                 comboOrderItems: action.payload.items
-            }
+            };
 
         default:
             return state
