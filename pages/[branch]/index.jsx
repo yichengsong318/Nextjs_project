@@ -134,6 +134,7 @@ export default function Index(props) {
 	useUserFetchCurrentUser();
 	usePageOnLoad(props);
 	const { currentBranch } = props;
+	const [ render, setRender ] = useState(false);
 	const [contentWidgets, setContentWidgets] = useState({});
 	const [
 		isDeliveryAvailabilitySectionVisible,
@@ -179,7 +180,10 @@ export default function Index(props) {
 	}, [currentBranch]);
 
 	useEffect(() => {
-		_process()
+		 if(render) {
+				_process()
+		 }
+		 setRender(true)
 	}, [currentLanguage])
 
 	return (

@@ -120,6 +120,7 @@ function Index(props) {
 	useUserFetchCurrentUser();
 	usePageOnLoad(props);
 	const { currentBranch } = props;
+	const [render, setRender] = useState(false)
 	const [contentWidgets, setContentWidgets] = useState({});
 	const [
 		isDeliveryAvailabilitySectionVisible,
@@ -150,10 +151,6 @@ function Index(props) {
 		setContentWidgets(contentWidgets);
 	}, [currentBranch]);
 
-	useEffect(() => {
-		_process()
-	}, [])
-
 	// set if delivery availability section is visible
 	useEffect(() => {
 		if (!currentBranch.contentWidgets) return;
@@ -166,7 +163,10 @@ function Index(props) {
 	}, [currentBranch]);
 
 	useEffect(() => {
-		_process()
+		if(render) {
+			_process()
+		}
+		setRender(true)
 	},[currentLanguage])
 
 	return (
