@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 import ModalFilterSearch from '../modal/filter/ModalFilterSeach';
 import ModalChangeBranch from '../modal/branch/ModalChangeBranch';
 import {
@@ -125,7 +126,9 @@ const HeaderBottom = () => {
 											</div>
 										)}
 										{isUserLoggedIn ? (
-											<button>{t('account')}</button>
+											<Link href={`/${branchId}/profile-management`}>
+												<a><button>{t('account')}</button></a>
+											</Link>
 										) : (
 												<div className="btn-join1">
 													<button

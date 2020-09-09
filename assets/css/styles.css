@@ -291,6 +291,9 @@ text {
 .header-bottom {
   padding-top: 35px;
 }
+.banner {
+  height: 140px;
+}
 .banner-item {
   padding: 200px 0px 150px 0;
 }
@@ -1087,7 +1090,7 @@ scrollbar-width: none;
   padding: 30px;
 }
 .order > .container {
-  margin-top: -140px;
+  margin-top: -110px;
   z-index: 2;
 }
 .datepicker {

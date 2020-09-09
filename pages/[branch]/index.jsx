@@ -147,7 +147,6 @@ export default function Index(props) {
 		const specialCruises = await getSpecialCruises(props.currentBranch.id, currentLanguage);
 		const chefChoices = await getChefChoices(props.currentBranch.id, currentLanguage);
 		const chefStory = await getChefStory(props.currentBranch.id, currentLanguage);
-		console.log(specialCruises,chefChoices, chefStory, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 		setProp({
 			...prop,
 			specialCruises,
