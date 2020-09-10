@@ -291,9 +291,15 @@ text {
 .header-bottom {
   padding-top: 35px;
 }
-.banner {
-  height: 140px;
+.profile-banner {
+  height: 100%;
+  margin-top: -340px;
 }
+.profile-banner > img {
+}
+/* .banner {
+  height: 140px;
+} */
 .banner-item {
   padding: 200px 0px 150px 0;
 }
