@@ -6,8 +6,7 @@ import DefaultLayout from '../../layouts/DefaultLayout';
 import TheHeader from '../../components/header/TheHeader';
 import TheFooter from '../../components/footer/TheFooter';
 import usePageOnLoad from '../../hooks/page/usePageOnLoad';
-import ManagmentSection from '../../components/pageSection/profile/ManagmentSection';
-import BasicProfile from '../../components/pageSection/profile/BasicProfile'
+import ManagmentSection from '../../components/pageSection/profile/ManagmentSection'
 import axios from '../../lib/axios';
 import i18n from '../../i18n/i18n';
 
@@ -50,7 +49,7 @@ export default function Profile(props) {
 	return (
 		<DefaultLayout>
 			<TheHeader />
-        <BasicProfile />
+        <ManagmentSection />
 			<TheFooter />
 		</DefaultLayout>
 	);

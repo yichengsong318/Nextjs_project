@@ -318,6 +318,9 @@ text {
 .banner-text button {
   font-size: 20px;
 }
+.basic-profile {
+  margin-top: -100px;
+}
 .banner-text button i {
   margin-left: 10px;
 }

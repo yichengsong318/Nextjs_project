@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux'
+import Link from 'next/link'
 import { useTranslation } from 'react-i18next';
 import PageSectionOrderHistory from './PageSectionOrderHistory';
 import PageSectionOrderTrack from './PageSectionOrderTrack';
@@ -11,6 +13,7 @@ const ProfileManagment = () => {
   const [currentItem, setCurrentItem] = useState("")
   const [currentSubPage, setCurrentSubPage] = useState()
   const [activeList, setActiveList] = useState([])
+  const { branchName, id: branchId } = useSelector((state) => state.root.currentBranch);
 
   const changeTopic = (e) => {
     // debugger
@@ -77,7 +80,11 @@ const ProfileManagment = () => {
                   </span>
                   <div className="user-right">
                     <h4 className="font-demi font-20">Ackerman</h4>
-                    <p><a href="basic-profile.html" title="">Edit</a> </p>
+                    <p>
+                      <Link href={`/${branchId}/profile-management`}>
+												<a>Edit</a>
+											</Link>
+                    </p>
                   </div>
                 </div>
                 <div className="order-nav">
