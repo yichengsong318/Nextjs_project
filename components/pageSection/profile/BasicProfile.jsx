@@ -1,23 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import PageSectionBasicInfo from './PageSectionBasicInfo'
-import PageSectionChangPSW from './PageSectionChangPSW'
-
+import PageSectionChangPSW from './PageSectionChangPSW';
+import { logOut } from '../../../store/actions/authentication.actions';
 const BasicProfile = () => {
+  const dispatch = useDispatch();
   const [currentItem, setCurrentItem] = useState("")
   const [currentSubPage, setCurrentSubPage] = useState()
   const [activeList, setActiveList] = useState([])
   const { branchName, id: branchId } = useSelector((state) => state.root.currentBranch);
+// const token = useUserToken();
+    
+// const [isRevalidated, setIsRevalidated] = useState(false);
+
+// const resendEmailVerfication = async () => {
+//     setIsLoading(true);
+//     try {
+//         const { emailOrUsername } = currentUser;
+//         const response = await axios.post(
+//             `customer/resend-verification-email?emailAddress=${emailOrUsername}`,
+//             {},
+//             {
+//                 headers: {
+//                     Authorization: `Bearer ${token}`,
+//                 },
+//             }
+//         );
 
   const changeTopic = (e) => {
     // debugger
     setCurrentItem(e.target.name)
   }
 
+  const onLogout = () => {
+    // dispatch(logOut());
+    localStorage.removeItem("user")
+  }
+
   useEffect(() => {
     console.log(currentSubPage, "activelist")
-    console.log(activeList,currentItem,"activelist")
+    console.log(activeList, currentItem, "activelist")
     let listArray = []
     switch (currentItem) {
       case "BasicInfo":
@@ -56,9 +80,9 @@ const BasicProfile = () => {
                 </div>
                 <div class="order-nav">
                   <ul>
-                    <li className={activeList[0]?"active":""}><a onClick={changeTopic} name="BasicInfo" href="#" title="">Basic Information</a> </li>
-                    <li  className={activeList[1]?"active":""}><a onClick={changeTopic} name="ChangePassword" href="#" title="">Change Password</a> </li>
-                    <li><a href="#" title="">Log Out</a> </li>
+                    <li className={activeList[0] ? "active" : ""}><a onClick={changeTopic} name="BasicInfo" href="#" title="">Basic Information</a> </li>
+                    <li className={activeList[1] ? "active" : ""}><a onClick={changeTopic} name="ChangePassword" href="#" title="">Change Password</a> </li>
+                    <li><a onClick={onLogout} href={`/${branchId}`} title="">Log Out</a> </li>
                   </ul>
                 </div>
               </div>

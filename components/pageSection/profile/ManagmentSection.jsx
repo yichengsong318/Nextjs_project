@@ -9,7 +9,8 @@ import PageSectionLoyaltyPoints from './PageSectionLoyaltyPoints';
 import PageSectionPaymentHistory from './PageSectionPaymentHistory';
 import PageSectionPostReviews from './PageSectionPostReviews';
 
-const ProfileManagment = () => {
+const ProfileManagment = (props) => {
+  const { currentBranch } = props
   const [currentItem, setCurrentItem] = useState("")
   const [currentSubPage, setCurrentSubPage] = useState()
   const [activeList, setActiveList] = useState([])
@@ -26,7 +27,7 @@ const ProfileManagment = () => {
     let listArray = []
     switch (currentItem) {
       case "orderHistory":
-        setCurrentSubPage(<PageSectionOrderHistory />)
+        setCurrentSubPage(<PageSectionOrderHistory currentBranch = {currentBranch}/>)
         listArray[0] = true
         setActiveList(listArray)
         break;

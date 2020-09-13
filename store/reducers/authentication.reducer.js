@@ -24,7 +24,10 @@ export default function authentication(state = initialState, action) {
         case userConstants.LOGIN_FAILURE:
             return {};
         case userConstants.LOGOUT:
-            return {};
+            debugger
+            return {
+                user: {}
+            };
 
         case userConstants.TOGGLE_REGISTRATION_MODAL:
             return {

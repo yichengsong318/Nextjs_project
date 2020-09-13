@@ -4,65 +4,82 @@ import { useTranslation } from 'react-i18next';
 
 const data = [
   {
-    "id": 1,
-    "branchName": "",
-    "dateTime": "",
-    "orderItems": [
-      {
-        "mealName": ""
-      },
-      {
-        "mealName": ""
-      }
-    ],
-    "total": "CHF 23",
-    "isFeedbackProvided": true,
-    "status": "Delivered",
-    "paymentMethod": "PayPal"
+    "id": 1, "branchName": "", "dateTime": "", "orderItems": [
+      { "mealName": "" }, { "mealName": "" }], "total": "CHF 23",
+    "isFeedbackProvided": true, "status": "Delivered", "paymentMethod": "PayPal"
   },
   {
-    "id": 2,
-    "branchName": "",
-    "dateTime": "",
-    "orderItems": [
-      {
-        "mealName": ""
-      },
-      {
-        "mealName": ""
-      }
-    ],
-    "total": "CHF 23",
-    "isFeedbackProvided": true,
-    "status": "Delivered",
-    "paymentMethod": "Cash"
-  }
+    "id": 2, "branchName": "", "dateTime": "", "orderItems": [
+      { "mealName": "" }, { "mealName": "" }
+    ], "total": "CHF 23", "isFeedbackProvided": true, "status": "Delivered", "paymentMethod": "Cash"
+  },
+  {
+    "id": 3, "branchName": "", "dateTime": "", "orderItems": [
+      { "mealName": "" }, { "mealName": "" }
+    ], "total": "CHF 23", "isFeedbackProvided": true, "status": "Delivered", "paymentMethod": "Cash"
+  },
+  {
+    "id": 4, "branchName": "", "dateTime": "", "orderItems": [
+      { "mealName": "" }, { "mealName": "" }
+    ], "total": "CHF 23", "isFeedbackProvided": true, "status": "Delivered", "paymentMethod": "Cash"
+  },
+  {
+    "id": 5, "branchName": "", "dateTime": "", "orderItems": [
+      { "mealName": "" }, { "mealName": "" }
+    ], "total": "CHF 23", "isFeedbackProvided": true, "status": "Delivered", "paymentMethod": "Cash"
+  },
 ]
 
-const PageSectionOrderHistory = () => {
+const PageSectionOrderHistory = (props) => {
+  const { currentBranch } = props
   const [dateValue, setDateValue] = useState("")
   const [totalPages, setTotalPage] = useState(5)
-  const [selectedPage, setSelectedPage] = useState(1)
+  const [selectedPage, setSelectedPage] = useState(0)
+  const [skipCount, setSkipCount] = useState(0)
+  const [orderHistoryData, setOrderHistoryData] = useState([])
+
   const [currentPage, setCurrentPage] = useState(0)
 
-  const hrefBuilder = (page) => {
-		// const query = queryString.stringify({
-		// 	initialCurrentPage: page
-		// });
+  const getOrderHistory = async () => {
+    try {
+      const url = `/customer/web/profile-service/order-history?branchId=${currentBranch}&count=5&page=${selectedPage + 1}&skipCount=${skipCount}&isActive=true`;
+      const response = await axios.get(url);
+      // setOrderHistoryData(response.data.result)
+      setOrderHistoryData(data)
+      return response.data.result;
+    } catch (error) {
+      console.error(error);
+      // setOrderHistoryData([])
+      setOrderHistoryData(data)
+      return [];
+    }
   }
-  
-	const onPageChange = (page) => {
-		setCurrentPage(page);
-		// let searchString = `?initialCurrentPage=${page}`
-		// window.history.replaceState(null, null, searchString);
-	};
+
+  useEffect(() => {
+    setTotalPage(Math.ceil(orderHistoryData.length / 5))
+  }, [orderHistoryData])
+
+  useEffect(() => {
+    getOrderHistory()
+  }, [selectedPage])
+
+  const hrefBuilder = (page) => {
+    // const query = queryString.stringify({
+    // 	initialCurrentPage: page
+    // });
+  }
+
+  const onPageChange = (page) => {
+    setCurrentPage(page);
+    // let searchString = `?initialCurrentPage=${page}`
+    // window.history.replaceState(null, null, searchString);
+  };
 
   const onDateHandle = (e) => {
 
   }
   return (
     <section>
-      <script src="../../../bootstrap-datepicker.min.js"></script>
       <div className="order-right">
         <form className="search-order search-order-history">
           <div className="search-item">
@@ -110,7 +127,7 @@ const PageSectionOrderHistory = () => {
             </thead>
             <tbody>
               {
-                data.map((data, key) => {
+                orderHistoryData.map((data, key) => {
                   return <tr>
                     <th>{data.id}</th>
                     <th>{data.branchName}</th>
@@ -124,7 +141,10 @@ const PageSectionOrderHistory = () => {
               }
             </tbody>
           </table>
-          <div className="no-found">No transaction has been found !</div>
+          {orderHistoryData.length == 0 && <div className="no-found">No transaction has been found !</div>}
+          <div style={{ height: "50px" }}></div>
+          {
+            totalPages > 0 && 
             <div className="pagi">
               <ul className="flex-center-center">
                 <ReactPaginate
@@ -149,7 +169,11 @@ const PageSectionOrderHistory = () => {
                 />
               </ul>
             </div>
+          }
         </div>
+        <footer style={{ height: "50px" }}>
+
+        </footer>
       </div>
     </section>
   )
