@@ -235,12 +235,37 @@ a {
 .btn-login:hover {
   color: #fbaf02;
 }
+.img-circle-shine {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.post-comment-shine {
+  width: 100%;
+  height: 46px;
+  border-radius: 23px;
+}
+.star-rate-shine{
+  width: 120px;
+  height:23px;
+  border-radius: 12px;
+}
+.ordertype-shine {
+  border-radius: 46px;
+  width: 200px;
+  height: 46px;
+}
 
 .meal-size-button {
   min-width: 100%;
 }
 .deleverybutton {
   max-width: 100%;
+}
+.btn-h46-shine {
+  width: 100px;
+  height: 46px;
+  border-radius:23px;
 }
 
 .shine {
@@ -1475,8 +1500,26 @@ input.baris-blank {
 .au-location {
   color: #9b51e0;
 }
+.track-order-button {
+  float: right;
+  right:0px
+}
+.btn-red {
+  background: #D13232
+}
+.btn-blue {
+  background: #2874E6
+}
+.submit-button {
+  position: absolute;
+  height: 56px;
+  right: 0px;
+}
+.order-track {
+  margin: 10px 0;
+}
 .post-review {
-  padding: 30px 50px;
+  padding: 0px 50px;
 }
 .via {
   color: #6b6c7e;

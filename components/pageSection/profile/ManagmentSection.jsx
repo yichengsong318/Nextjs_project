@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next';
-import PageSectionOrderHistory from './PageSectionOrderHistory';
 import PageSectionOrderTrack from './PageSectionOrderTrack';
-import PageSectionCoupon from './PageSectionCoupon';
 import PageSectionLoyaltyPoints from './PageSectionLoyaltyPoints';
-import PageSectionPaymentHistory from './PageSectionPaymentHistory';
 import PageSectionPostReviews from './PageSectionPostReviews';
+import PageSectionCoupon from './PageSectionCoupon';
 
 const ProfileManagment = (props) => {
   const { currentBranch } = props
@@ -26,38 +24,23 @@ const ProfileManagment = (props) => {
     console.log(activeList,currentItem,"activelist")
     let listArray = []
     switch (currentItem) {
-      case "orderHistory":
-        setCurrentSubPage(<PageSectionOrderHistory currentBranch = {currentBranch}/>)
+      case "orderTrack":
+        setCurrentSubPage(<PageSectionOrderTrack currentBranch = {currentBranch}/>)
         listArray[0] = true
         setActiveList(listArray)
         break;
       case "loyaltyPoints":
-        setCurrentSubPage(<PageSectionOrderTrack />)
-        listArray[1] = true
-        setActiveList(listArray)
-        break;
-      case "orderTrack":
-        setCurrentSubPage(<PageSectionCoupon />)
-        listArray[2] = true
-        setActiveList(listArray)
-        break;
-      case "postReviews":
         setCurrentSubPage(<PageSectionLoyaltyPoints />)
-        listArray[3] = true
-        setActiveList(listArray)
-        break;
-      case "paymentHistory":
-        setCurrentSubPage(<PageSectionPaymentHistory />)
-        listArray[4] = true
+        listArray[1] = true
         setActiveList(listArray)
         break;
       case "coupon":
         setCurrentSubPage(<PageSectionPostReviews />)
-        listArray[5] = true
+        listArray[2] = true
         setActiveList(listArray)
         break;
       default:
-        setCurrentSubPage(<PageSectionOrderHistory />)
+        setCurrentSubPage(<PageSectionOrderTrack />)
         listArray[0] = true
         setActiveList(listArray)
         break;
@@ -90,12 +73,9 @@ const ProfileManagment = (props) => {
                 </div>
                 <div className="order-nav">
                   <ul>
-                    <li className={activeList[0]?"active":""}><a onClick={changeTopic} name="orderHistory" href="#" title="">Order History</a> </li>
+                    <li className={activeList[0]?"active":""}><a onClick={changeTopic} name="orderTrack" href="#" title="">Order History</a> </li>
                     <li className={activeList[1]?"active":""}><a onClick={changeTopic} name="loyaltyPoints" href="#" title="">Loyalty Points</a></li>
-                    <li className={activeList[2]?"active":""}><a onClick={changeTopic} name="orderTrack" href="#" title="">Order Track</a></li>
-                    <li className={activeList[3]?"active":""}><a onClick={changeTopic} name="postReviews" href="#" title="">Post Reviews</a></li>
-                    <li className={activeList[4]?"active":""}><a onClick={changeTopic} name="paymentHistory" href="#" title="">Payment History</a></li>
-                    <li className={activeList[5]?"active":""}><a onClick={changeTopic} name="coupon" href="#" title="">Coupon</a></li>
+                    <li className={activeList[2]?"active":""}><a onClick={changeTopic} name="coupon" href="#" title="">Coupon</a></li>
                     <li className=""><a onClick={changeTopic} name="logout" href="#" title="">LOGOUT</a></li>
                   </ul>
                 </div>

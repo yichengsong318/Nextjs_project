@@ -61,6 +61,7 @@ h1, h2, h3, h4, h5, h6 {line-height: 1.25;}
 .btn-white:hover {background-color: #fbaf02;color: #fff;}
 .btn-gray {background-color: #f2f2f2; color: #080040;}
 .btn-bgLeft {background-repeat: no-repeat; background-position: center left 20px; padding-left: 60px;position: relative}
+.btn-h30 {border-radius: 15px; height: 30px}
 .btn-h46 {border-radius:23px; height: 46px;}
 .btn-h50 {border-radius:25px; height: 50px;}
 .btn-h60 {border-radius:30px; height: 60px;}
