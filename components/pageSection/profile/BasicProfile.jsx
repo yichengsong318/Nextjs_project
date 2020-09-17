@@ -9,7 +9,7 @@ import { logOut } from '../../../store/actions/authentication.actions';
 
 const getUserDetails = async () => {
   try {
-    const url = `https://default.ordering.ch/api/customer/web/profile-service/me`;
+    const url = "/customer/web/profile-service/me";
     const response = await axios.get(url);
     return response.data.result;
   } catch (error) {
@@ -28,13 +28,12 @@ const BasicProfile = () => {
 
   const _process = async () => {
     const userDetail = await getUserDetails()
-    debugger
     setUserDetails(userDetail)
   }
 
   useEffect(() => {
-    _process()
-  }, [])
+      _process()
+  },[currentItem, userDetails])
 
   const changeTopic = (e) => {
     setCurrentItem(e.target.name)

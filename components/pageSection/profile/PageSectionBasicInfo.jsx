@@ -37,7 +37,7 @@ const PageSectionBasicInfo = (props) => {
       [e.target.name]: e.target.value
     })
   }
-debugger
+
   return (
     <>
       <div class="order-right">
