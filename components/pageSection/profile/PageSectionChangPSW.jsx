@@ -11,19 +11,19 @@ const PageSectionChangPSW = () => {
             <div class="col-md-10">
               <div class="label-top relative">
                 <label>Current Password</label>
-                <input type="text" placeholder="First name" class="input-radius h56" value="Levi" />
+                <input type="password" placeholder="Current Password" class="input-radius h56"  />
               </div>
             </div>
             <div class="col-md-10">
               <div class="label-top relative">
                 <label>Confirm Password</label>
-                <input type="text" placeholder="Last name" class="input-radius h56" value="Ackerman" />
+                <input type="password" placeholder="Confirm Password" class="input-radius h56" />
               </div>
             </div>
             <div class="col-md-10">
               <div class="label-top relative">
                 <label>New Password</label>
-                <input type="text" placeholder="Last name" class="input-radius h56" value="Ackerman" />
+                <input type="password" placeholder="New Password" class="input-radius h56"  />
               </div>
             </div>
           </div>

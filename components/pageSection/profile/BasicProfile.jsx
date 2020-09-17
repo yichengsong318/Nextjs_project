@@ -4,33 +4,39 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import PageSectionBasicInfo from './PageSectionBasicInfo'
 import PageSectionChangPSW from './PageSectionChangPSW';
+import axios from '../../../lib/axios';
 import { logOut } from '../../../store/actions/authentication.actions';
+
+const getUserDetails = async () => {
+  try {
+    const url = `https://default.ordering.ch/api/customer/web/profile-service/me`;
+    const response = await axios.get(url);
+    return response.data.result;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
 const BasicProfile = () => {
   const dispatch = useDispatch();
   const [currentItem, setCurrentItem] = useState("")
   const [currentSubPage, setCurrentSubPage] = useState()
   const [activeList, setActiveList] = useState([])
+  const [userDetails, setUserDetails] = useState()
   const { branchName, id: branchId } = useSelector((state) => state.root.currentBranch);
-// const token = useUserToken();
-    
-// const [isRevalidated, setIsRevalidated] = useState(false);
 
-// const resendEmailVerfication = async () => {
-//     setIsLoading(true);
-//     try {
-//         const { emailOrUsername } = currentUser;
-//         const response = await axios.post(
-//             `customer/resend-verification-email?emailAddress=${emailOrUsername}`,
-//             {},
-//             {
-//                 headers: {
-//                     Authorization: `Bearer ${token}`,
-//                 },
-//             }
-//         );
+  const _process = async () => {
+    const userDetail = await getUserDetails()
+    debugger
+    setUserDetails(userDetail)
+  }
+
+  useEffect(() => {
+    _process()
+  }, [])
 
   const changeTopic = (e) => {
-    // debugger
     setCurrentItem(e.target.name)
   }
 
@@ -45,7 +51,7 @@ const BasicProfile = () => {
     let listArray = []
     switch (currentItem) {
       case "BasicInfo":
-        setCurrentSubPage(<PageSectionBasicInfo />)
+        setCurrentSubPage(<PageSectionBasicInfo userDetails = {userDetails}/>)
         listArray[0] = true
         setActiveList(listArray)
         break;
@@ -55,12 +61,12 @@ const BasicProfile = () => {
         setActiveList(listArray)
         break;
       default:
-        setCurrentSubPage(<PageSectionBasicInfo />)
+        setCurrentSubPage(<PageSectionBasicInfo userDetails = {userDetails}/>)
         listArray[0] = true
         setActiveList(listArray)
         break;
     }
-  }, [currentItem])
+  }, [currentItem, userDetails])
 
   return (
     <main class="cd-main-content">
@@ -88,7 +94,7 @@ const BasicProfile = () => {
               </div>
             </div>
             <div class="col-md-8">
-              {currentSubPage && currentSubPage}
+              {currentSubPage && userDetails && currentSubPage}
             </div>
           </div>
         </div>
