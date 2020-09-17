@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
+import axios from '../../../lib/axios';
 
 const PageSectionBasicInfo = (props) => {
   const { userDetails } = props
@@ -8,7 +9,20 @@ const PageSectionBasicInfo = (props) => {
     firstname: "", lastname: "", streetname: "", doornr: "", postalcode: "",
     city: "", province: "", ountry: "", phonenumber: "", email: "",
   })
+  const [phoneEditable, setPhoneEditable] = useState(false)
+  const { currentUser } = useSelector((state) => state.authentication);
   const [shine, setShine] = useState(true)
+
+  const postUserDetails = async (data) => {
+    try {
+      const url = "/customer/web/profile-service/me";
+      const response = await axios.post(url, data);
+      return response.data.result;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
 
   useEffect(() => {
     if (userDetails) {
@@ -21,14 +35,35 @@ const PageSectionBasicInfo = (props) => {
         city: userDetails.city,
         province: userDetails.provinceId,
         country: userDetails.countryId,
-        phonenumber: userDetails.phoneNumber,
+        phonenumber: userDetails.phoneNumber.slice(3),
+        phoneHeader: userDetails.phoneNumber.slice(0, 3),
         email: userDetails.email
       })
     }
   }, [userDetails])
 
+  useEffect(() => {
+    if(currentUser.isPhoneConfirmed)
+      setPhoneEditable(true)
+  }, currentUser)
+
   const onSave = (e) => {
     e.preventDefault();
+
+    let data = {
+      "surname": inputValues.lastname,
+      "name": inputValues.firstname,
+      "avatar": "",
+      "doorNumber": inputValues.doornr,
+      "streetName": inputValues.streetname,
+      "postalCodeId": inputValues.postalcode,
+      "city": inputValues.city,
+      "provinceId": inputValues.province,
+      "countryId": inputValues.country,
+      "id": 1
+    }
+
+    postUserDetails(data)
   }
 
   const onInputHandle = (e) => {
@@ -36,6 +71,10 @@ const PageSectionBasicInfo = (props) => {
       ...inputValues,
       [e.target.name]: e.target.value
     })
+  }
+
+  const onPhoneEdit = () => {
+    setPhoneEditable(false)
   }
 
   return (
@@ -102,9 +141,12 @@ const PageSectionBasicInfo = (props) => {
           <div class="label-top relative">
             <label>Phone number</label>
             <div class="box-telephone relative">
-              <span class="area-code inflex-center-center">{inputValues.phonenumber}</span>
-              <input type="text" placeholder="364 239 2830" onChange={onInputHandle} name='phonenumber' class="input-radius h56" value={inputValues.phonenumber} />
-              <button type="button" class="vertify-button font-16 font-demi" data-target="#verify-phone" data-toggle="modal">Vertify</button>
+              <span class="area-code inflex-center-center">{inputValues.phoneHeader}</span>
+              <input type="text" disabled={phoneEditable} placeholder="364 239 2830" onChange={onInputHandle} name='phonenumber' class="input-radius h56" value={inputValues.phonenumber} />
+              {currentUser.isPhoneConfirmed && phoneEditable?
+                <button type="button" onClick={onPhoneEdit} class="vertify-button font-16 font-demi" data-target="#verify-phone" data-toggle="modal">Edit</button> :
+                <button type="button" class="vertify-button font-16 font-demi" data-target="#verify-phone" data-toggle="modal">Vertify</button>
+              }
             </div>
           </div>
           <div class="label-top relative">
@@ -121,13 +163,13 @@ const PageSectionBasicInfo = (props) => {
           <h2 class="font-20 font-demi mgb-40">UPDATE PROFILE</h2>
           <ul class="progressbar-update">
             <li class="active">Add Address</li>
-            <li>
+            <li className={currentUser.isPhoneConfirmed && "active"}>
               <div class="box-verphone text-center">
                 <p>Vertify Phone</p>
                 <p><button class="btn-default">Vertify</button></p>
               </div>
             </li>
-            <li>
+            <li className={currentUser.isEmailConfirmed && "active"}>
               <div class="box-verphone text-center">
                 <p>Confirm Mail</p>
                 <p><button class="btn-default">Check</button></p>

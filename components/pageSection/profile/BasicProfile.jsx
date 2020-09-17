@@ -14,7 +14,7 @@ const getUserDetails = async () => {
     return response.data.result;
   } catch (error) {
     console.error(error);
-    return [];
+    return false;
   }
 };
 
@@ -32,8 +32,10 @@ const BasicProfile = () => {
   }
 
   useEffect(() => {
-      _process()
-  },[currentItem, userDetails])
+      if(!userDetails){
+        _process()
+      }
+  },[userDetails])
 
   const changeTopic = (e) => {
     setCurrentItem(e.target.name)
