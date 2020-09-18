@@ -2,16 +2,44 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
 import axios from '../../../lib/axios';
+import Autocomplete from '../../element/Autocomplete'
 
-const PageSectionBasicInfo = (props) => {
+function PageSectionBasicInfo(props) {
   const { userDetails } = props
+
   const [inputValues, setInputValues] = useState({
-    firstname: "", lastname: "", streetname: "", doornr: "", postalcode: "",
-    city: "", province: "", ountry: "", phonenumber: "", email: "",
+    firstname: userDetails.name,
+    lastname: userDetails.surname,
+    streetname: userDetails.streetName,
+    doornr: userDetails.doorNumber,
+    postalcode: userDetails.postalCodeId,
+    city_id: userDetails.city,
+    province_id: userDetails.provinceId,
+    countryId: userDetails.countryId,
+    phonenumber: userDetails.phoneNumber.slice(3),
+    phoneHeader: userDetails.phoneNumber.slice(0, 3),
+    email: userDetails.email
   })
   const [phoneEditable, setPhoneEditable] = useState(false)
   const { currentUser } = useSelector((state) => state.authentication);
   const [shine, setShine] = useState(true)
+  const [provinceData, setProvinceData] = useState([])
+  const [countryData, setCountryData] = useState([])
+  const [cityName, setCity] = useState("")
+  const [province, setProvince] = useState()
+  const [country, setCountry] = useState()
+
+  const getCityFromAuto = (value) => {
+    console.log(value, "cityname")
+  }
+
+  const getProvinceFromAuto = (value) => {
+    console.log(value, "province")
+  }
+
+  const getCountryFromAuto = (value) => {
+    console.log(value, "country")
+  }
 
   const postUserDetails = async (data) => {
     try {
@@ -24,28 +52,57 @@ const PageSectionBasicInfo = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (userDetails) {
-      setInputValues({
-        firstname: userDetails.name,
-        lastname: userDetails.surname,
-        streetname: userDetails.streetName,
-        doornr: userDetails.doorNumber,
-        postalcode: userDetails.postalCodeId,
-        city: userDetails.city,
-        province: userDetails.provinceId,
-        country: userDetails.countryId,
-        phonenumber: userDetails.phoneNumber.slice(3),
-        phoneHeader: userDetails.phoneNumber.slice(0, 3),
-        email: userDetails.email
+  const getCountry = async (userDetails) => {
+    try {
+      const url = `/settings/countries`;
+      const res = await axios.get(url)
+      setCountryData(res.data.result)
+      getProvinces(userDetails.countryId, userDetails)
+      let country = res.data.result.filter(country => {
+        if (country.id == userDetails.countryId)
+          return country
       })
+      setCountry(country[0].name)
+      return res.data.result
+    } catch (error) {
+      console.error(error)
+      return []
     }
+  }
+
+  const getProvinces = async (countryId, userDetails) => {
+    try {
+      const url = `/settings/countries/${countryId}/provinces`
+      const res = await axios.get(url)
+      setProvinceData(res.data.result)
+      let province = res.data.result.filter(prov => {
+        if (prov.id == userDetails.provinceId)
+          return prov
+      })
+      setProvince(province[0].name)
+      debugger
+      return res.data.result
+    } catch (error) {
+      console.error(error)
+      return []
+    }
+  }
+
+  useEffect(() => {
+    getCountry(userDetails)
   }, [userDetails])
 
   useEffect(() => {
-    if(currentUser.isPhoneConfirmed)
+    if (currentUser.isPhoneConfirmed)
       setPhoneEditable(true)
-  }, currentUser)
+  })
+
+  const getPostalCodeFromAuto = (value) => {
+    setInputValues({
+      ...inputValues,
+      postalcode: value
+    })
+  }
 
   const onSave = (e) => {
     e.preventDefault();
@@ -76,7 +133,7 @@ const PageSectionBasicInfo = (props) => {
   const onPhoneEdit = () => {
     setPhoneEditable(false)
   }
-
+  console.log(province, country, "===========")
   return (
     <>
       <div class="order-right">
@@ -114,13 +171,13 @@ const PageSectionBasicInfo = (props) => {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Postal Code</label>
-                <input type="text" placeholder="Postal Code" name="postalcode" onChange={onInputHandle} class="input-radius h56" value={inputValues.postalcode} />
+                <Autocomplete value={inputValues.postalcode} getValue={getPostalCodeFromAuto} placeholder="Postal Code" />
               </div>
             </div>
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>City</label>
-                <input type="text" placeholder="City" class="input-radius h56" onChange={onInputHandle} name="city" value={inputValues.city} />
+                <Autocomplete value={cityName} getValue={getCityFromAuto} placeholder="City" />
               </div>
             </div>
           </div>
@@ -128,13 +185,19 @@ const PageSectionBasicInfo = (props) => {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Province</label>
-                <input type="text" placeholder="Province" name="province" onChange={onInputHandle} class="input-radius h56" value={inputValues.province} />
+                {province ?
+                  <Autocomplete value={province} getValue={getProvinceFromAuto} placeholder="Province" suggestions={provinceData.map(province => province.name)} /> :
+                  <input type="text" placeholder = "Province " class="input-radius h56" />
+                }
               </div>
             </div>
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Country</label>
-                <input type="text" placeholder="Country" class="input-radius h56" onChange={onInputHandle} name="country" value={inputValues.country} />
+                {country ?
+                  <Autocomplete value={country} getValue={getCountryFromAuto} placeholder="Country" /> :
+                  <input type="text" placeholder = "Country " class="input-radius h56" />
+                }
               </div>
             </div>
           </div>
@@ -143,7 +206,7 @@ const PageSectionBasicInfo = (props) => {
             <div class="box-telephone relative">
               <span class="area-code inflex-center-center">{inputValues.phoneHeader}</span>
               <input type="text" disabled={phoneEditable} placeholder="364 239 2830" onChange={onInputHandle} name='phonenumber' class="input-radius h56" value={inputValues.phonenumber} />
-              {currentUser.isPhoneConfirmed && phoneEditable?
+              {currentUser.isPhoneConfirmed && phoneEditable ?
                 <button type="button" onClick={onPhoneEdit} class="vertify-button font-16 font-demi" data-target="#verify-phone" data-toggle="modal">Edit</button> :
                 <button type="button" class="vertify-button font-16 font-demi" data-target="#verify-phone" data-toggle="modal">Vertify</button>
               }

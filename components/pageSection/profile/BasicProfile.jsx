@@ -32,10 +32,10 @@ const BasicProfile = () => {
   }
 
   useEffect(() => {
-      if(!userDetails){
-        _process()
-      }
-  },[userDetails])
+    if (!userDetails) {
+      _process()
+    }
+  }, [userDetails])
 
   const changeTopic = (e) => {
     setCurrentItem(e.target.name)
@@ -47,25 +47,25 @@ const BasicProfile = () => {
   }
 
   useEffect(() => {
-    console.log(currentSubPage, "activelist")
-    console.log(activeList, currentItem, "activelist")
     let listArray = []
-    switch (currentItem) {
-      case "BasicInfo":
-        setCurrentSubPage(<PageSectionBasicInfo userDetails = {userDetails}/>)
-        listArray[0] = true
-        setActiveList(listArray)
-        break;
-      case "ChangePassword":
-        setCurrentSubPage(<PageSectionChangPSW />)
-        listArray[1] = true
-        setActiveList(listArray)
-        break;
-      default:
-        setCurrentSubPage(<PageSectionBasicInfo userDetails = {userDetails}/>)
-        listArray[0] = true
-        setActiveList(listArray)
-        break;
+    if (userDetails) {
+      switch (currentItem) {
+        case "BasicInfo":
+          setCurrentSubPage(<PageSectionBasicInfo userDetails={userDetails} />)
+          listArray[0] = true
+          setActiveList(listArray)
+          break;
+        case "ChangePassword":
+          setCurrentSubPage(<PageSectionChangPSW />)
+          listArray[1] = true
+          setActiveList(listArray)
+          break;
+        default:
+          setCurrentSubPage(<PageSectionBasicInfo userDetails={userDetails} />)
+          listArray[0] = true
+          setActiveList(listArray)
+          break;
+      }
     }
   }, [currentItem, userDetails])
 
@@ -95,7 +95,7 @@ const BasicProfile = () => {
               </div>
             </div>
             <div class="col-md-8">
-              {currentSubPage && userDetails && currentSubPage}
+              {userDetails ? currentSubPage : <></>}
             </div>
           </div>
         </div>

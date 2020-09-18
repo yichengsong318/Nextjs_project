@@ -395,6 +395,21 @@ text {
   z-index: 2;
   transition: all ease 0.3s;
 }
+.auto-complete-suggestions {
+  position: relative;
+  left: 10px;
+  margin-right: 20px;
+  z-index: 100;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px gray;
+}
+.auto-complete-suggestions > li {
+  padding: 5px;
+  color: black;
+  padding-left: 15px;
+  font-size: 16px;
+}
 .delivery button {
   background-image: url('../images/icon/icon-truck.svg');
 }
@@ -1321,6 +1336,7 @@ input.baris-blank {
 }
 .label-top {
   margin-bottom: 40px;
+  height: 54px;
 }
 .label-top label {
   background: #fff;
