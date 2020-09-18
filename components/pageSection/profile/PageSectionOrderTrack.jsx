@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useTranslation } from 'react-i18next';
+import DatePicker from 'react-datepicker';
 import axios from '../../../lib/axios';
 
 const PageSectionOrderHistory = (props) => {
@@ -10,7 +11,8 @@ const PageSectionOrderHistory = (props) => {
   const [selectedPage, setSelectedPage] = useState(0)
   const [skipCount, setSkipCount] = useState(0)
   const [orderHistoryData, setOrderHistoryData] = useState([])
-
+  const [fromDate, setFromDate] = useState("")
+  const [toDate, setToDate] = useState("")
   const [currentPage, setCurrentPage] = useState(0)
 
   const getOrderHistory = async () => {
@@ -47,9 +49,14 @@ const PageSectionOrderHistory = (props) => {
     // window.history.replaceState(null, null, searchString);
   };
 
-  const onDateHandle = (e) => {
-
+  const fromDateChange = (date) => {
+    setFromDate(date)
   }
+
+  const toDateChange = (date) => {
+    setToDate(date)
+  }
+
   return (
     <>
       <section>
@@ -69,14 +76,24 @@ const PageSectionOrderHistory = (props) => {
             <div className="search-item search-date">
               <label>From Date</label>
               <div className="input-group date">
-                <input type="text" className="baris-blank" placeholder="dd/mm/yyyy" />
+                <DatePicker
+                  className="baris-blank"
+                  placeholder="dd/mm/yyyy"
+                  selected={fromDate}
+                  onChange={fromDateChange}
+                />
                 <span className="input-group-addon"><i className="fa fa-calendar"></i></span>
               </div>
             </div>
             <div className="search-item search-date">
               <label>To Date</label>
               <div className="input-group date">
-                <input type="text" className="baris-blank" placeholder="dd/mm/yyyy" />
+                <DatePicker
+                  className="baris-blank"
+                  placeholder="dd/mm/yyyy"
+                  selected={toDate}
+                  onChange={toDateChange}
+                />
                 <span className="input-group-addon"><i className="fa fa-calendar"></i></span>
               </div>
             </div>

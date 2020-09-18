@@ -57,12 +57,14 @@ function PageSectionBasicInfo(props) {
       const url = `/settings/countries`;
       const res = await axios.get(url)
       setCountryData(res.data.result)
-      getProvinces(userDetails.countryId, userDetails)
       let country = res.data.result.filter(country => {
         if (country.id == userDetails.countryId)
           return country
       })
-      setCountry(country[0].name)
+      
+      getProvinces(userDetails.countryId, userDetails)
+      if (country.length > 0)
+        setProvince(country[0].name)
       return res.data.result
     } catch (error) {
       console.error(error)
@@ -72,14 +74,23 @@ function PageSectionBasicInfo(props) {
 
   const getProvinces = async (countryId, userDetails) => {
     try {
-      const url = `/settings/countries/${countryId}/provinces`
+      let url = ""
+      if (countryId) {
+        url = `/settings/countries/${countryId}/provinces`
+      }
+      else {
+        url = `/settings/countries/1/provinces`
+      }
+      
       const res = await axios.get(url)
       setProvinceData(res.data.result)
       let province = res.data.result.filter(prov => {
         if (prov.id == userDetails.provinceId)
           return prov
       })
-      setProvince(province[0].name)
+
+      if (province.length > 0)
+        setProvince(province[0].name)
       debugger
       return res.data.result
     } catch (error) {
@@ -133,7 +144,7 @@ function PageSectionBasicInfo(props) {
   const onPhoneEdit = () => {
     setPhoneEditable(false)
   }
-  console.log(province, country, "===========")
+  console.log(province, countryData.map(country => country.name), "===========")
   return (
     <>
       <div class="order-right">
@@ -185,18 +196,18 @@ function PageSectionBasicInfo(props) {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Province</label>
-                {province ?
+                {provinceData ?
                   <Autocomplete value={province} getValue={getProvinceFromAuto} placeholder="Province" suggestions={provinceData.map(province => province.name)} /> :
-                  <input type="text" placeholder = "Province " class="input-radius h56" />
+                  <input type="text" placeholder="Province " class="input-radius h56" />
                 }
               </div>
             </div>
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Country</label>
-                {country ?
-                  <Autocomplete value={country} getValue={getCountryFromAuto} placeholder="Country" /> :
-                  <input type="text" placeholder = "Country " class="input-radius h56" />
+                {countryData ?
+                  <Autocomplete value={country} getValue={getCountryFromAuto} placeholder="Country" suggestions={countryData.map(country => country.name)} /> :
+                  <input type="text" placeholder="Country " class="input-radius h56" />
                 }
               </div>
             </div>
