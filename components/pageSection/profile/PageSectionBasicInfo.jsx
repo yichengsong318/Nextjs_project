@@ -23,11 +23,13 @@ function PageSectionBasicInfo(props) {
   const [phoneEditable, setPhoneEditable] = useState(false)
   const { currentUser } = useSelector((state) => state.authentication);
   const [shine, setShine] = useState(true)
+  const [postalCodeData, setPostalCodeData] = useState([])
+  const [postalcode, setPostalCode] = useState("")
   const [provinceData, setProvinceData] = useState([])
   const [countryData, setCountryData] = useState([])
   const [cityName, setCity] = useState("")
   const [province, setProvince] = useState()
-  const [country, setCountry] = useState()
+  const [country, setCountry] = useState("Switzerland")
 
   const getCityFromAuto = (value) => {
     console.log(value, "cityname")
@@ -52,6 +54,25 @@ function PageSectionBasicInfo(props) {
     }
   };
 
+  const getPostalCode = async (userDetails) => {
+    try {
+      const url = "/customer/web/home-service/postal-codes?postalCodeSearch=1"
+      const response = await axios.get(url);
+      console.log(response.data.result)
+      setPostalCodeData(response.data.result, "postalCodeData")
+      let postalcode = response.data.result.filter(code => {
+        if (code.id == userDetails.postalCodeId)
+          return postalcode
+      })
+      setPostalCode(postalcode)
+      console.log(postalcode, "postalcodecode")
+      return response.data.result;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   const getCountry = async (userDetails) => {
     try {
       const url = `/settings/countries`;
@@ -61,10 +82,10 @@ function PageSectionBasicInfo(props) {
         if (country.id == userDetails.countryId)
           return country
       })
-      
+
       getProvinces(userDetails.countryId, userDetails)
       if (country.length > 0)
-        setProvince(country[0].name)
+        setCountry(country[0].name)
       return res.data.result
     } catch (error) {
       console.error(error)
@@ -81,7 +102,7 @@ function PageSectionBasicInfo(props) {
       else {
         url = `/settings/countries/1/provinces`
       }
-      
+
       const res = await axios.get(url)
       setProvinceData(res.data.result)
       let province = res.data.result.filter(prov => {
@@ -101,6 +122,7 @@ function PageSectionBasicInfo(props) {
 
   useEffect(() => {
     getCountry(userDetails)
+    getPostalCode(userDetails)
   }, [userDetails])
 
   useEffect(() => {
@@ -144,7 +166,8 @@ function PageSectionBasicInfo(props) {
   const onPhoneEdit = () => {
     setPhoneEditable(false)
   }
-  console.log(province, countryData.map(country => country.name), "===========")
+
+  console.log(province, "postalCodeData")
   return (
     <>
       <div class="order-right">
@@ -182,7 +205,10 @@ function PageSectionBasicInfo(props) {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Postal Code</label>
-                <Autocomplete value={inputValues.postalcode} getValue={getPostalCodeFromAuto} placeholder="Postal Code" />
+                {postalCodeData.length & postalcode ?
+                  <Autocomplete value={postalcode} suggestions={postalCodeData.map(code => code.zip)} getValue={getPostalCodeFromAuto} placeholder="Postal Code" /> :
+                  <input type="text" placeholder="Province " class="input-radius h56" />
+                }
               </div>
             </div>
             <div class="col-md-6">
@@ -196,7 +222,7 @@ function PageSectionBasicInfo(props) {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Province</label>
-                {provinceData ?
+                {provinceData && province ? 
                   <Autocomplete value={province} getValue={getProvinceFromAuto} placeholder="Province" suggestions={provinceData.map(province => province.name)} /> :
                   <input type="text" placeholder="Province " class="input-radius h56" />
                 }
@@ -205,7 +231,7 @@ function PageSectionBasicInfo(props) {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>Country</label>
-                {countryData ?
+                {countryData && country ?
                   <Autocomplete value={country} getValue={getCountryFromAuto} placeholder="Country" suggestions={countryData.map(country => country.name)} /> :
                   <input type="text" placeholder="Country " class="input-radius h56" />
                 }
