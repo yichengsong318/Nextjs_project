@@ -13,7 +13,7 @@ function PageSectionBasicInfo(props) {
     streetname: userDetails.streetName,
     doornr: userDetails.doorNumber,
     postalcode: userDetails.postalCodeId,
-    city_id: userDetails.city,
+    city: userDetails.city,
     province_id: userDetails.provinceId,
     countryId: userDetails.countryId,
     phonenumber: userDetails.phoneNumber.slice(3),
@@ -112,7 +112,6 @@ function PageSectionBasicInfo(props) {
 
       if (province.length > 0)
         setProvince(province[0].name)
-      debugger
       return res.data.result
     } catch (error) {
       console.error(error)
@@ -167,7 +166,6 @@ function PageSectionBasicInfo(props) {
     setPhoneEditable(false)
   }
 
-  console.log(province, "postalCodeData")
   return (
     <>
       <div class="order-right">
@@ -214,7 +212,7 @@ function PageSectionBasicInfo(props) {
             <div class="col-md-6">
               <div class="label-top relative">
                 <label>City</label>
-                <Autocomplete value={cityName} getValue={getCityFromAuto} placeholder="City" />
+                <input type="text" value={inputValues.city} placeholder="City" name="city" class="input-radius h56" onChange={onInputHandle} />
               </div>
             </div>
           </div>

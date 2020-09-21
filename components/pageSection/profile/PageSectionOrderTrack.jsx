@@ -16,16 +16,21 @@ const PageSectionOrderHistory = (props) => {
   const [fromDate, setFromDate] = useState("")
   const [toDate, setToDate] = useState("")
   const [currentPage, setCurrentPage] = useState(0)
-  const [status, setStatus] = useState()
+  const [status, setStatus] = useState("All")
+  const [noData, setNoData] = useState(false)
 
   const getOrderHistory = async () => {
     try {
-      const url = `/customer/web/checkout-service/orders?MaxResultCount=5&SkipCount=${skipCount}&status=${status}&isIncludeFeedback=true&startDate=${fromDateString}&endDate=${toDateString}`; 
+      const url = `/customer/web/checkout-service/orders?MaxResultCount=5&SkipCount=${skipCount}&status=${status}&isIncludeFeedback=true&startDate=${fromDateString}&endDate=${toDateString}`;
       const response = await axios.get(url);
       setOrderHistoryData(response.data.result.items)
       let page = Math.ceil(response.data.result.totalCount / 5)
       setTotalPage(page)
-      
+      if (response.data.result.items) {
+        setTimeout(function () {
+          setNoData(true)
+        }, [3000])
+      }
       return response.data.result;
     } catch (error) {
       console.error(error);
@@ -46,7 +51,7 @@ const PageSectionOrderHistory = (props) => {
 
   const onPageChange = (page) => {
     setCurrentPage(page);
-    setSkipCount(page*5)
+    setSkipCount(page * 5)
     getOrderHistory(page)
     // let searchString = `?initialCurrentPage=${page}`
     // window.history.replaceState(null, null, searchString);
@@ -66,7 +71,7 @@ const PageSectionOrderHistory = (props) => {
 
   const searchWithDate = (e) => {
     e.preventDefault()
-    if(fromDate == "" || toDate == "" )
+    if (fromDate == "" || toDate == "")
       return
     getOrderHistory()
   }
@@ -85,7 +90,7 @@ const PageSectionOrderHistory = (props) => {
             <div className="search-item">
               <label>Status</label>
               <div className="select-box relative">
-                <select className="baris-blank" onChange = {getStatus}>
+                <select className="baris-blank" onChange={getStatus}>
                   <option>All</option>
                   <option>Pending</option>
                   <option>Active</option>
@@ -125,7 +130,11 @@ const PageSectionOrderHistory = (props) => {
           </form>
           {/* {orderHistoryData.length == 0 && <div className="no-found">No transaction has been found !</div>} */}
         </div>
-        {orderHistoryData.length === 0 ?
+        {orderHistoryData.length === 0 ? noData ?
+          <div className="order-right order-track" style={{ textAlign: "center" }}>
+            There is No Data!
+        </div>
+          :
           <div className="order-right order-track">
             <div className="search-order flex-center-between">
               <span className="ordertype-shine shine">
@@ -155,57 +164,63 @@ const PageSectionOrderHistory = (props) => {
               </div>
             </div>
           </div>
-        : orderHistoryData.map(data =>
-          <div className="order-right order-track">
-            <div className="search-order flex-center-between">
-              <span className="font-14 font-demi">
-                <p>Order : {data.orderType}</p>
-                {data.creationTime}
-              </span>
-              <div className="search-item flex-center">
-                <div className="select-box relative mgr-15">
-                  {data.isPaid ? <div className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center">Paid</div> :
-                    <div className="btn btn-h46 btn-red font-demi font-12  inflex-center-center">Not Paid</div>}
-                </div>
-                <div className="select-box relative mgr-15">
-                  <div className="btn btn-h46 font-demi font-12  inflex-center-center">{`${data.currency} ` + ` ${data.finalAmount}`}</div>
-                </div>
-                <div className="select-box relative">
-                  <div className="btn btn-h46 btn-blue font-demi font-12  inflex-center-center">{data.paymentType}</div>
-                </div>
-              </div>
-            </div>
-            <div className="post-review">
-              <div className="review-author flex">
-                <span className="img-circle-60 mgr-15"><img src={data.image} alt="" title="" /> </span>
-                <div className="author-info">
-                  <h2 className="font-20 font-demi">{data.name}</h2>
-                  <div className="star-rate">
-                    <a href="" title="" className="fa fa-star"></a>
-                    <a href="" title="" className="fa fa-star"></a>
-                    <a href="" title="" className="fa fa-star"></a>
-                    <a href="" title="" className="fa fa-star"></a>
-                    <a href="" title="" className="fa fa-star"></a>
+          : orderHistoryData.map(data =>
+            <div className="order-right order-track">
+              <div className="search-order flex-center-between">
+                <span className="font-14 font-demi">
+                  <p>Order : {data.orderType}</p>
+                  {data.creationTime}
+                </span>
+                <div className="search-item flex-center">
+                  <div className="select-box relative mgr-15">
+                    {data.isPaid ? <div className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center">Paid</div> :
+                      <div className="btn btn-h46 btn-red font-demi font-12  inflex-center-center">Not Paid</div>}
+                  </div>
+                  <div className="select-box relative mgr-15">
+                    <div className="btn btn-h46 font-demi font-12  inflex-center-center">{`${data.currency} ` + ` ${data.finalAmount}`}</div>
+                  </div>
+                  <div className="select-box relative">
+                    <div className="btn btn-h46 btn-blue font-demi font-12  inflex-center-center">{data.paymentType}</div>
                   </div>
                 </div>
               </div>
-              {data.status === "Accepted" ?
-                <div className="flex-center mgb-30">
-                  <div className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center track-order-button">TRACK ORDER</div>
+              <div className="post-review">
+
+                <div className="review-author flex">
+                  {data.orderItems.map(items => {
+                    return <>
+                      <span className="img-circle-60 mgr-15"><img src={data.image} alt="" title="" /> </span>
+                      <div className="author-info">
+                        <h2 className="font-20 font-demi">{items.mealName} - {items.mealPriceName}</h2>
+                        <div className="star-rate">
+                          <a href="" title="" className="fa fa-star"></a>
+                          <a href="" title="" className="fa fa-star"></a>
+                          <a href="" title="" className="fa fa-star"></a>
+                          <a href="" title="" className="fa fa-star"></a>
+                          <a href="" title="" className="fa fa-star"></a>
+                        </div>
+                      </div>
+                    </>
+                  })}
                 </div>
-                :
-                <div className="post-comment flex-center mgb-30">
-                  <span className="img-circle mgr-15"><img src="/images/picture/user.png" alt="" title="" /> </span>
-                  <div className="label-top relative">
-                    <label>Comment</label>
-                    <button className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center submit-button">SUBMIT</button>
-                    <input type="text" placeholder="" className="input-radius h56" />
+
+                {data.status === "Accepted" ?
+                  <div className="flex-center mgb-30">
+                    <div className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center track-order-button">TRACK ORDER</div>
                   </div>
-                </div>
-              }
+                  :
+                  <div className="post-comment flex-center mgb-30">
+                    <span className="img-circle mgr-15"><img src="/images/picture/user.png" alt="" title="" /> </span>
+                    <div className="label-top relative">
+                      <label>Comment</label>
+                      <button className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center submit-button">SUBMIT</button>
+                      <input type="text" placeholder="" className="input-radius h56" />
+                    </div>
+                  </div>
+                }
+              </div>
             </div>
-          </div>
-        )}
+          )}
         <div className="order-right">
           <div style={{ height: "50px" }}></div>
           {
