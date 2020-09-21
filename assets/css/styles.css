@@ -1523,7 +1523,9 @@ input.baris-blank {
   color: #9b51e0;
 }
 .track-order-button {
-  float: right;
+  float: left;
+  left: 70%;
+  position: relative;
   right:0px
 }
 .btn-red {

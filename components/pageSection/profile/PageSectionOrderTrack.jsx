@@ -7,19 +7,25 @@ import axios from '../../../lib/axios';
 const PageSectionOrderHistory = (props) => {
   const { currentBranch } = props
   const [dateValue, setDateValue] = useState("")
-  const [totalPages, setTotalPage] = useState(5)
+  const [totalPages, setTotalPage] = useState()
   const [selectedPage, setSelectedPage] = useState(0)
   const [skipCount, setSkipCount] = useState(0)
   const [orderHistoryData, setOrderHistoryData] = useState([])
+  const [fromDateString, setFromDateString] = useState("")
+  const [toDateString, setToDateString] = useState("")
   const [fromDate, setFromDate] = useState("")
   const [toDate, setToDate] = useState("")
   const [currentPage, setCurrentPage] = useState(0)
+  const [status, setStatus] = useState()
 
   const getOrderHistory = async () => {
     try {
-      const url = `/customer/web/checkout-service/orders?MaxResultCount=5&SkipCount=${currentPage}&isIncludeFeedback=true`;
+      const url = `/customer/web/checkout-service/orders?MaxResultCount=5&SkipCount=${skipCount}&status=${status}&isIncludeFeedback=true&startDate=${fromDateString}&endDate=${toDateString}`; 
       const response = await axios.get(url);
-      setOrderHistoryData(response.data.result)
+      setOrderHistoryData(response.data.result.items)
+      let page = Math.ceil(response.data.result.totalCount / 5)
+      setTotalPage(page)
+      
       return response.data.result;
     } catch (error) {
       console.error(error);
@@ -28,12 +34,8 @@ const PageSectionOrderHistory = (props) => {
   }
 
   useEffect(() => {
-    setTotalPage(Math.ceil(orderHistoryData.length / 5))
-    console.log(orderHistoryData, "orderhistory")
-  }, [orderHistoryData])
-
-  useEffect(() => {
     getOrderHistory()
+
   }, [currentPage])
 
   const hrefBuilder = (page) => {
@@ -43,32 +45,51 @@ const PageSectionOrderHistory = (props) => {
   }
 
   const onPageChange = (page) => {
-    debugger
     setCurrentPage(page);
+    setSkipCount(page*5)
+    getOrderHistory(page)
     // let searchString = `?initialCurrentPage=${page}`
     // window.history.replaceState(null, null, searchString);
   };
 
   const fromDateChange = (date) => {
+    let fromdate = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
+    setFromDateString(fromdate)
     setFromDate(date)
   }
 
   const toDateChange = (date) => {
+    let todate = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
+    setToDateString(todate)
     setToDate(date)
   }
+
+  const searchWithDate = (e) => {
+    e.preventDefault()
+    if(fromDate == "" || toDate == "" )
+      return
+    getOrderHistory()
+  }
+
+  const getStatus = (e) => {
+    setStatus(e.target.value)
+  }
+
+  console.log(totalPages, "totalpages")
 
   return (
     <>
       <section>
         <div className="order-right">
-          <form className="search-order search-order-history">
+          <form className="search-order search-order-history" onSubmit={searchWithDate}>
             <div className="search-item">
               <label>Status</label>
               <div className="select-box relative">
-                <select className="baris-blank">
+                <select className="baris-blank" onChange = {getStatus}>
                   <option>All</option>
-                  <option>All 1</option>
-                  <option>All 2</option>
+                  <option>Pending</option>
+                  <option>Active</option>
+                  <option>Completed</option>
                 </select>
                 <span className="arrow-abs ti-angle-down"></span>
               </div>
@@ -78,7 +99,7 @@ const PageSectionOrderHistory = (props) => {
               <div className="input-group date">
                 <DatePicker
                   className="baris-blank"
-                  placeholder="dd/mm/yyyy"
+                  placeholderText="MM/DD/YYYY"
                   selected={fromDate}
                   onChange={fromDateChange}
                 />
@@ -90,7 +111,7 @@ const PageSectionOrderHistory = (props) => {
               <div className="input-group date">
                 <DatePicker
                   className="baris-blank"
-                  placeholder="dd/mm/yyyy"
+                  placeholderText="MM/DD/YYYY"
                   selected={toDate}
                   onChange={toDateChange}
                 />
@@ -104,7 +125,7 @@ const PageSectionOrderHistory = (props) => {
           </form>
           {/* {orderHistoryData.length == 0 && <div className="no-found">No transaction has been found !</div>} */}
         </div>
-        {orderHistoryData.length === 0 &&
+        {orderHistoryData.length === 0 ?
           <div className="order-right order-track">
             <div className="search-order flex-center-between">
               <span className="ordertype-shine shine">
@@ -134,8 +155,7 @@ const PageSectionOrderHistory = (props) => {
               </div>
             </div>
           </div>
-        }
-        {orderHistoryData.map(data =>
+        : orderHistoryData.map(data =>
           <div className="order-right order-track">
             <div className="search-order flex-center-between">
               <span className="font-14 font-demi">
@@ -193,8 +213,8 @@ const PageSectionOrderHistory = (props) => {
             <div className="pagi">
               <ul className="flex-center-center">
                 <ReactPaginate
-                  pageCount={5}
-                  pageRangeDisplayed={10}
+                  pageCount={totalPages}
+                  pageRangeDisplayed={5}
                   // forcePage={selectedPage}
                   marginPagesDisplayed={1}
                   previousLabel={
