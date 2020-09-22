@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { useTranslation } from 'react-i18next';
 import DatePicker from 'react-datepicker';
 import axios from '../../../lib/axios';
-import DateConvert from '../../../utils/DateConvert'
+import DateConvert from '../../../utils/DateConvert';
 
 const PageSectionOrderHistory = (props) => {
   const { currentBranch } = props;
@@ -19,12 +19,14 @@ const PageSectionOrderHistory = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [status, setStatus] = useState('All');
   const [noData, setNoData] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
 
   const getOrderHistory = async () => {
     try {
       const url = `/customer/web/checkout-service/orders?MaxResultCount=5&SkipCount=${skipCount}&status=${status}&isIncludeFeedback=true&startDate=${fromDateString}&endDate=${toDateString}`;
       const response = await axios.get(url);
       setOrderHistoryData(response.data.result.items);
+      setTotalCount(response.data.result.totalCount);
       let page = Math.ceil(response.data.result.totalCount / 5);
       setTotalPage(page);
       if (response.data.result.items) {
@@ -61,6 +63,11 @@ const PageSectionOrderHistory = (props) => {
   };
 
   const fromDateChange = (date) => {
+    if (date == null) {
+      setFromDateString('');
+      setFromDate('');
+      return;
+    }
     let fromdate =
       date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate();
     setFromDateString(fromdate);
@@ -68,6 +75,11 @@ const PageSectionOrderHistory = (props) => {
   };
 
   const toDateChange = (date) => {
+    if (date == null) {
+      setToDateString('');
+      setToDate('');
+      return;
+    }
     let todate =
       date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate();
     setToDateString(todate);
@@ -76,7 +88,6 @@ const PageSectionOrderHistory = (props) => {
 
   const searchWithDate = (e) => {
     e.preventDefault();
-    if (fromDate == '' || toDate == '') return;
     getOrderHistory();
   };
 
@@ -236,7 +247,6 @@ const PageSectionOrderHistory = (props) => {
                     );
                   })}
                 </div>
-
                 {data.status === 'Accepted' ? (
                   <div className="flex-center mgb-30">
                     <div className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center track-order-button">
@@ -265,30 +275,32 @@ const PageSectionOrderHistory = (props) => {
             </div>
           ))
         )}
-        <div className="order-right">
-          <div style={{ height: '50px' }}></div>
-          {totalPages > 0 && (
-            <div className="pagi">
-              <ul className="flex-center-center">
-                <ReactPaginate
-                  pageCount={totalPages}
-                  pageRangeDisplayed={5}
-                  // forcePage={selectedPage}
-                  marginPagesDisplayed={1}
-                  previousLabel={<i className="ti-angle-left" />}
-                  nextLabel={<i className="ti-angle-right" />}
-                  nextClassName="active"
-                  previousClassName="active"
-                  activeClassName="current"
-                  containerClassName="d-flex pagenation"
-                  onPageChange={(page) => onPageChange(page.selected)}
-                  hrefBuilder={hrefBuilder}
-                />
-              </ul>
-            </div>
-          )}
-          <footer style={{ height: '50px' }}></footer>
-        </div>
+        {totalCount > 5 && (
+          <div className="order-right">
+            <div style={{ height: '50px' }}></div>
+            {totalPages > 0 && (
+              <div className="pagi">
+                <ul className="flex-center-center">
+                  <ReactPaginate
+                    pageCount={totalPages}
+                    pageRangeDisplayed={5}
+                    // forcePage={selectedPage}
+                    marginPagesDisplayed={1}
+                    previousLabel={<i className="ti-angle-left" />}
+                    nextLabel={<i className="ti-angle-right" />}
+                    nextClassName="active"
+                    previousClassName="active"
+                    activeClassName="current"
+                    containerClassName="d-flex pagenation"
+                    onPageChange={(page) => onPageChange(page.selected)}
+                    hrefBuilder={hrefBuilder}
+                  />
+                </ul>
+              </div>
+            )}
+            <footer style={{ height: '50px' }}></footer>
+          </div>
+        )}
       </section>
     </>
   );
