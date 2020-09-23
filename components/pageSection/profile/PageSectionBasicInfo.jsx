@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import axios from '../../../lib/axios';
 import Autocomplete from '../../element/Autocomplete';
+import { toast, ToastContainer } from 'react-nextjs-toast';
 
 function PageSectionBasicInfo(props) {
   const { userDetails } = props;
@@ -58,7 +59,7 @@ function PageSectionBasicInfo(props) {
     try {
       const url = `customer/web/home-service/postal-codes?postalCodeSearch=${val}`;
       const response = await axios.get(url);
-      console.log("responsed postcode", val)
+      console.log('responsed postcode', val);
       return response.data.result;
     } catch (error) {
       showErrorMessage(t('an_error_happend'));
@@ -108,6 +109,25 @@ function PageSectionBasicInfo(props) {
     }
   };
 
+  const verifyPhone = async () => {
+    const phonenumber = inputValues.phonenumber;
+    let url = `/customer/send-phone-verification-code?phone=+41${phonenumber}`;
+    try {
+      var res = await axios.post(url, {});
+      console.log(res.data.success);
+      if (res.data.success) {
+        toast.notify("Phone verification code is successfully sent to your phone", {
+          duration: 5,
+          position: "top",
+          targetId: "phone-Verify",
+          title: "Success"
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getCountry(userDetails);
     getPostalCode(userDetails);
@@ -120,7 +140,7 @@ function PageSectionBasicInfo(props) {
     if (currentUser.isPhoneConfirmed) setPhoneEditable(true);
   });
 
-  const getPostalCodeFromAuto = async (value) => { 
+  const getPostalCodeFromAuto = async (value) => {
     if (value === '') return;
     setInputValues({
       ...inputValues,
@@ -161,8 +181,9 @@ function PageSectionBasicInfo(props) {
   };
 
   return (
-    <>
+    <div>
       <div class="order-right">
+      <ToastContainer align={'right'} position={'top'} id="phone-Verify" />
         <form class="profile-form" onSubmit={onSave}>
           <h1 class="font-20 font-demi mgb-60">BASIC INFORMATION</h1>
           <div class="row">
@@ -317,6 +338,7 @@ function PageSectionBasicInfo(props) {
                   type="button"
                   class="vertify-button font-16 font-demi"
                   data-target="#verify-phone"
+                  onClick={verifyPhone}
                   data-toggle="modal"
                 >
                   Vertify
@@ -370,7 +392,7 @@ function PageSectionBasicInfo(props) {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

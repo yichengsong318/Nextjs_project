@@ -33,6 +33,7 @@ const PageSectionChangPSW = () => {
     if (newPassowrd == confirmPassword) {
       var regexUppercase = /[a-z]/;
       var regexLowercase = /[A-Z]/;
+      var regexSpecial = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
       if (newPassowrd.length < 6 || newPassowrd.length > 20) {
         setError("Passwords must be at least 6 characters.")
@@ -45,6 +46,9 @@ const PageSectionChangPSW = () => {
       if (!regexUppercase.test(newPassowrd)) {
         setError("Passwords must have at least one lowercase ('a'-'z').")
         return
+      }
+      if (!regexSpecial.test(newPassowrd)) {
+        setError("Passwords must have at least one non alphanumeric character")
       }
       changePassword(newPassowrd, confirmPassword)
     } else {
