@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import PageSectionBasicInfo from './PageSectionBasicInfo'
-import PageSectionChangPSW from './PageSectionChangPSW';
+import Link from 'next/link'
 import axios from '../../../lib/axios';
 import { logOut } from '../../../store/actions/authentication.actions';
 
@@ -18,7 +17,8 @@ const getUserDetails = async () => {
   }
 };
 
-const BasicProfile = () => {
+const ProfileInfoSide = (props) => {
+  const { pageurl } = props;
   const dispatch = useDispatch();
   const [currentItem, setCurrentItem] = useState("");
   const [currentSubPage, setCurrentSubPage] = useState();
@@ -70,29 +70,6 @@ const BasicProfile = () => {
     uploadImage(formData)
   }
 
-  useEffect(() => {
-    let listArray = []
-    if (userDetails) {
-      switch (currentItem) {
-        case "BasicInfo":
-          setCurrentSubPage(<PageSectionBasicInfo userDetails={userDetails} />)
-          listArray[0] = true
-          setActiveList(listArray)
-          break;
-        case "ChangePassword":
-          setCurrentSubPage(<PageSectionChangPSW />)
-          listArray[1] = true
-          setActiveList(listArray)
-          break;
-        default:
-          setCurrentSubPage(<PageSectionBasicInfo userDetails={userDetails} />)
-          listArray[0] = true
-          setActiveList(listArray)
-          break;
-      }
-    }
-  }, [currentItem, userDetails])
-
   return (
     <main class="cd-main-content">
       <section class="profile-user wrapper-gray">
@@ -111,15 +88,23 @@ const BasicProfile = () => {
                 </div>
                 <div class="order-nav">
                   <ul>
-                    <li className={activeList[0] ? "active" : ""}><a onClick={changeTopic} name="BasicInfo" href="#" title="">Basic Information</a> </li>
-                    <li className={activeList[1] ? "active" : ""}><a onClick={changeTopic} name="ChangePassword" href="#" title="">Change Password</a> </li>
+                    <li className={pageurl == "basic_info" ? "active" : ""}>
+                      <Link href={`/${branchId}/me/basic_info`}>
+                        <a onClick={changeTopic} name="BasicInfo" href="#" title="">Basic Information</a>
+                      </Link>
+                    </li>
+                    <li className={pageurl == "change_password" ? "active" : ""}>
+                      <Link href={`/${branchId}/me/change_password`}>
+                        <a onClick={changeTopic} name="ChangePassword" href="#" title="">Change Password</a>
+                      </Link>
+                    </li>
                     <li><a onClick={onLogout} href={`/${branchId}`} title="">Log Out</a> </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="col-md-8">
-              {userDetails ? currentSubPage : <></>}
+              {props.children}
             </div>
           </div>
         </div>
@@ -129,4 +114,4 @@ const BasicProfile = () => {
   )
 }
 
-export default BasicProfile;
+export default ProfileInfoSide;

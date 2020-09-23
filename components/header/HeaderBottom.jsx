@@ -126,7 +126,7 @@ const HeaderBottom = () => {
 											</div>
 										)}
 										{isUserLoggedIn ? (
-											<Link href={`/${branchId}/management`}>
+											<Link href={`/${branchId}/me/manage_order`}>
 												<a><button>{t('account')}</button></a>
 											</Link>
 										) : (
