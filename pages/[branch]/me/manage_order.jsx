@@ -71,6 +71,7 @@ export default function Index(props) {
       const response = await axios.get(url);
       setOrderHistoryData(response.data.result.items);
       setTotalCount(response.data.result.totalCount);
+      console.log(response.data.result, "orderhistoryresult")
       let page = Math.ceil(response.data.result.totalCount / 5);
       setTotalPage(page);
       if (response.data.result.items) {
@@ -292,7 +293,7 @@ export default function Index(props) {
               <div className="order-right order-track">
                 <div className="search-order flex-center-between">
                   <span className="font-14 font-demi">
-                    <p>Order : {data.orderType}</p>
+                    <p>Order : {data.id}</p>
                     {DateConvert(data.creationTime)}
                   </span>
                   <div className="search-item flex-center">

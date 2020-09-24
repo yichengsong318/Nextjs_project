@@ -29,13 +29,16 @@ const ProfileInfoSide = (props) => {
 
   const uploadImage = async (formData) => {
     try {
+      const delAvatarUrl = "/customer/web/profile-service/me/avatar";
+      const resDel = await axios.delete(delAvatarUrl);
       const url = `customer/web/profile-service/me/avatar`;
       const res = await axios.post(url, formData)
-      _process()
     } catch (error) {
       console.log(error);
-      return false;
     }
+    const url = `customer/web/profile-service/me/avatar`;
+    const res = await axios.post(url, formData)
+    _process()
   }
 
   const _process = async () => {

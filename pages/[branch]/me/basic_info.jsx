@@ -14,7 +14,7 @@ import _ from 'lodash';
 
 const getUserDetails = async () => {
   try {
-    const url = "/customer/web/profile-service/me";
+    const url = '/customer/web/profile-service/me';
     const response = await axios.get(url);
     return response.data.result;
   } catch (error) {
@@ -24,47 +24,46 @@ const getUserDetails = async () => {
 };
 
 const getSettings = async () => {
-	try {
-		const url = `settings?mediaTypeFilters=LOGO&mediaTypeFilters=FAVI_ICON&mediaTypeFilters=MOBILE_PROFILE_IMAGE&mediaTypeFilters=MOBILE_START_SCREEN&mediaTypeFilters=MOBILE_WELCOME_SCREEN`;
-		const response = await axios.get(url);
+  try {
+    const url = `settings?mediaTypeFilters=LOGO&mediaTypeFilters=FAVI_ICON&mediaTypeFilters=MOBILE_PROFILE_IMAGE&mediaTypeFilters=MOBILE_START_SCREEN&mediaTypeFilters=MOBILE_WELCOME_SCREEN`;
+    const response = await axios.get(url);
 
-		return response.data.result;
-	} catch (error) {
-		console.error(error);
+    return response.data.result;
+  } catch (error) {
+    console.error(error);
 
-		return [];
-	}
+    return [];
+  }
 };
 
 export async function getServerSideProps(context) {
-	const branchId = context.params.branch;
-	const settings = await getSettings();
+  const branchId = context.params.branch;
+  const settings = await getSettings();
 
-	// get current branch
-	const { branches } = settings;
-	const currentBranch = branches.filter((branch) => {
-		return branch.id === parseInt(branchId);
-    })[0];
-    // if branch is not found
-	if (_.isNil(currentBranch)) {
-		context.res.statusCode = 404;
-		context.res.end('Not found');
-		return;
-	}
+  // get current branch
+  const { branches } = settings;
+  const currentBranch = branches.filter((branch) => {
+    return branch.id === parseInt(branchId);
+  })[0];
+  // if branch is not found
+  if (_.isNil(currentBranch)) {
+    context.res.statusCode = 404;
+    context.res.end('Not found');
+    return;
+  }
 
-	return {
-		props: {
-			settings,
-			currentBranch,
-		},
-	};
+  return {
+    props: {
+      settings,
+      currentBranch,
+    },
+  };
 }
 
 export default function basic_info(props) {
-
-	useUserFetchCurrentUser();
-	usePageOnLoad(props);
-	const { currentBranch } = props;
+  useUserFetchCurrentUser();
+  usePageOnLoad(props);
+  const { currentBranch } = props;
 
   const [userDetails, setUserDetails] = useState();
   const [inputValues, setInputValues] = useState({});
@@ -78,6 +77,7 @@ export default function basic_info(props) {
   const [cityName, setCity] = useState('');
   const [province, setProvince] = useState();
   const [country, setCountry] = useState('Switzerland');
+  const [postalId, setPostalId] = useState('');
 
   const _process = async () => {
     const userDetails = await getUserDetails();
@@ -95,15 +95,15 @@ export default function basic_info(props) {
         phonenumber: userDetails.phoneNumber.slice(3),
         phoneHeader: userDetails.phoneNumber.slice(0, 3),
         email: userDetails.email,
-      })
+      });
     }
-  }
+  };
 
   useEffect(() => {
     if (!userDetails) {
-      _process()
+      _process();
     }
-  }, [userDetails])
+  }, [userDetails]);
 
   const getCityFromAuto = (value) => {
     console.log(value, 'cityname');
@@ -121,6 +121,14 @@ export default function basic_info(props) {
     try {
       const url = '/customer/web/profile-service/me';
       const response = await axios.post(url, data);
+      if(response.data){
+          toast.notify("successfully saved", {
+          duration: 5,
+          position: "top",
+          targetId: "basicinfoSaved"
+        })
+      }
+      
       return response.data.result;
     } catch (error) {
       console.error(error);
@@ -132,11 +140,10 @@ export default function basic_info(props) {
     try {
       const url = `customer/web/home-service/postal-codes?postalCodeSearch=${val}`;
       const response = await axios.get(url);
-      console.log('responsed postcode', val);
+      debugger
       return response.data.result;
     } catch (error) {
       showErrorMessage(t('an_error_happend'));
-
       return [];
     }
   };
@@ -189,12 +196,15 @@ export default function basic_info(props) {
       var res = await axios.post(url, {});
       console.log(res.data.success);
       if (res.data.success) {
-        toast.notify("Phone verification code is successfully sent to your phone", {
-          duration: 5,
-          position: "top",
-          targetId: "phone-Verify",
-          title: "Success"
-        })
+        toast.notify(
+          'Phone verification code is successfully sent to your phone',
+          {
+            duration: 5,
+            position: 'top',
+            targetId: 'phone-Verify',
+            title: 'Success',
+          },
+        );
       }
     } catch (error) {
       console.log(error);
@@ -203,7 +213,6 @@ export default function basic_info(props) {
 
   useEffect(() => {
     getCountry(userDetails);
-    getPostalCode(userDetails);
   }, [userDetails]);
 
   // useEffect(() => {
@@ -215,12 +224,13 @@ export default function basic_info(props) {
 
   const getPostalCodeFromAuto = async (value) => {
     if (value === '') return;
-    setInputValues({
-      ...inputValues,
-      postalcode: value,
-    });
     const codes = await getPostalCode(value);
+    debugger
     setPostalCodeData(codes);
+    if (value.length == 4) {
+      const postalIdVal = codes[0].id;
+      setPostalId(postalIdVal);
+    }
   };
 
   const onSave = (e) => {
@@ -232,7 +242,7 @@ export default function basic_info(props) {
       avatar: '',
       doorNumber: inputValues.doornr,
       streetName: inputValues.streetname,
-      postalCodeId: inputValues.postalcode,
+      postalCodeId: postalId,
       city: inputValues.city,
       provinceId: inputValues.province,
       countryId: inputValues.country,
@@ -255,11 +265,16 @@ export default function basic_info(props) {
 
   return (
     <DefaultLayout>
+      <ToastContainer align={"right"} position={"top"} id="basicinfoSaved" />
       <TheHeader />
-      <ProfileInfoSide pageurl = "basic_info">
+      <ProfileInfoSide pageurl="basic_info">
         <div>
           <div class="order-right">
-            <ToastContainer align={'right'} position={'top'} id="phone-Verify" />
+            <ToastContainer
+              align={'right'}
+              position={'top'}
+              id="phone-Verify"
+            />
             <form class="profile-form" onSubmit={onSave}>
               <h1 class="font-20 font-demi mgb-60">BASIC INFORMATION</h1>
               <div class="row">
@@ -327,7 +342,7 @@ export default function basic_info(props) {
                       getValue={getPostalCodeFromAuto}
                       placeholder="Postal Code"
                       suggestions={postalCodeData.map((code) => code.zip)}
-                    />{' '}
+                    />
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -353,15 +368,17 @@ export default function basic_info(props) {
                         value={province}
                         getValue={getProvinceFromAuto}
                         placeholder="Province"
-                        suggestions={provinceData.map((province) => province.name)}
+                        suggestions={provinceData.map(
+                          (province) => province.name,
+                        )}
                       />
                     ) : (
-                        <input
-                          type="text"
-                          placeholder="Province "
-                          class="input-radius h56"
-                        />
-                      )}
+                      <input
+                        type="text"
+                        placeholder="Province "
+                        class="input-radius h56"
+                      />
+                    )}
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -375,12 +392,12 @@ export default function basic_info(props) {
                         suggestions={countryData.map((country) => country.name)}
                       />
                     ) : (
-                        <input
-                          type="text"
-                          placeholder="Country "
-                          class="input-radius h56"
-                        />
-                      )}
+                      <input
+                        type="text"
+                        placeholder="Country "
+                        class="input-radius h56"
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -410,16 +427,16 @@ export default function basic_info(props) {
                       Edit
                     </button>
                   ) : (
-                      <button
-                        type="button"
-                        class="vertify-button font-16 font-demi"
-                        data-target="#verify-phone"
-                        onClick={verifyPhone}
-                        data-toggle="modal"
-                      >
-                        Vertify
-                      </button>
-                    )}
+                    <button
+                      type="button"
+                      class="vertify-button font-16 font-demi"
+                      data-target="#verify-phone"
+                      onClick={verifyPhone}
+                      data-toggle="modal"
+                    >
+                      Vertify
+                    </button>
+                  )}
                 </div>
               </div>
               <div class="label-top relative">
@@ -440,7 +457,7 @@ export default function basic_info(props) {
                   class="btn btn-yellow btn-h60 font-demi font-20 w230"
                 >
                   SAVE
-            </button>
+                </button>
               </div>
             </form>
           </div>
@@ -472,6 +489,5 @@ export default function basic_info(props) {
       </ProfileInfoSide>
       <TheFooter />
     </DefaultLayout>
-  )
+  );
 }
-
