@@ -71,7 +71,7 @@ export default function Index(props) {
       const response = await axios.get(url);
       setOrderHistoryData(response.data.result.items);
       setTotalCount(response.data.result.totalCount);
-      console.log(response.data.result, "orderhistoryresult")
+      console.log(response.data.result, 'orderhistoryresult');
       let page = Math.ceil(response.data.result.totalCount / 5);
       setTotalPage(page);
       if (response.data.result.items) {
@@ -150,10 +150,10 @@ export default function Index(props) {
     }));
     if (idStarValueGroup[parentName]) {
       if (idStarValueGroup[parentName].indexOf(e.target.name) < 0)
-      setIdStarValueGroup({
-        ...idStarValueGroup,
-        [parentName]: [...idStarValueGroup[parentName], e.target.name],
-      });
+        setIdStarValueGroup({
+          ...idStarValueGroup,
+          [parentName]: [...idStarValueGroup[parentName], e.target.name],
+        });
     } else {
       setIdStarValueGroup({
         ...idStarValueGroup,
@@ -171,23 +171,24 @@ export default function Index(props) {
     console.log(comment);
   };
 
-  const submitFeedback = async (e) => {debugger
+  const submitFeedback = async (e) => {
+    debugger;
     let orderItem = e.target.name;
     let commentOfItem = comment[orderItem];
     let keys = idStarValueGroup[orderItem];
     let values = [];
-    keys.map(key => values.push(starValue[key]));
+    keys.map((key) => values.push(starValue[key]));
     var result = {};
-    keys.forEach((key, i) => result[key] = values[i]);
+    keys.forEach((key, i) => (result[key] = values[i]));
     let url = `customer/web/checkout-service/orders/${orderItem}/feedback`;
     try {
       let res = await axios.post(url, {
-        "Rating": result,
-        "Comment": commentOfItem
-      })
-      console.log(res)
+        Rating: result,
+        Comment: commentOfItem,
+      });
+      console.log(res);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
   return (
@@ -322,7 +323,7 @@ export default function Index(props) {
                 </div>
                 <div className="post-review">
                   <div className="review-author flex">
-                    {data.orderItems.map((item) => {
+                    {data.orderItems.map((item, index) => {
                       return (
                         <>
                           <span className="img-circle-60 mgr-15">
@@ -333,25 +334,26 @@ export default function Index(props) {
                               {item.mealName} - {item.mealPriceName}
                             </h2>
                             <div className="star-rate" name={data.id}>
-                              {console.log('dataid', data.id)}
-                              <Box
-                                component="fieldset"
-                                mb={3}
-                                borderColor="transparent"
-                              >
-                                <Rating
-                                  name={item.id}
-                                  value={starValue[item.id]}
-                                  onChange={changeStarFeedback}
-                                />
-                              </Box>
+                              {data.status === 'Completed' && (
+                                <Box
+                                  component="fieldset"
+                                  mb={3}
+                                  borderColor="transparent"
+                                >
+                                  <Rating
+                                    name={item.id}
+                                    value={data.feedback? data.feedback.Rating[data.orderItems[index].id]: starValue[item.id]}
+                                    onChange={changeStarFeedback}
+                                  />
+                                </Box>
+                              )}
                             </div>
                           </div>
                         </>
                       );
                     })}
                   </div>
-                  {data.status === 'Accepted' ? (
+                  {data.status !== 'Completed' ? (
                     <div className="flex-center mgb-30">
                       <div className="btn btn-h50 btn-yellow font-demi font-16  inflex-center-center track-order-button">
                         TRACK ORDER
@@ -374,7 +376,7 @@ export default function Index(props) {
                         <input
                           name={data.id}
                           className="input-radius h56"
-                          value={comment[data.id]}
+                          value={data.feedback? data.feedback.Comment: comment[data.id]}
                           onChange={commentChange}
                         />
                       </div>
