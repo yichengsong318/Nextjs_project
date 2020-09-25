@@ -140,7 +140,6 @@ export default function basic_info(props) {
     try {
       const url = `customer/web/home-service/postal-codes?postalCodeSearch=${val}`;
       const response = await axios.get(url);
-      debugger
       return response.data.result;
     } catch (error) {
       showErrorMessage(t('an_error_happend'));
@@ -225,8 +224,8 @@ export default function basic_info(props) {
   const getPostalCodeFromAuto = async (value) => {
     if (value === '') return;
     const codes = await getPostalCode(value);
-    debugger
     setPostalCodeData(codes);
+    console.log("+++++++++++++++++--------", codes)
     if (value.length == 4) {
       const postalIdVal = codes[0].id;
       setPostalId(postalIdVal);

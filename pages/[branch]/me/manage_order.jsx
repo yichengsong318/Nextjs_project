@@ -333,7 +333,7 @@ export default function Index(props) {
                             <h2 className="font-20 font-demi">
                               {item.mealName} - {item.mealPriceName}
                             </h2>
-                            <div className="star-rate" name={data.id}>
+                            <div className="star-rate" name={data.id}>{console.log}
                               {data.status === 'Completed' && (
                                 <Box
                                   component="fieldset"
@@ -342,7 +342,7 @@ export default function Index(props) {
                                 >
                                   <Rating
                                     name={item.id}
-                                    value={data.feedback? data.feedback.Rating[data.orderItems[index].id]: starValue[item.id]}
+                                    value={data.feedback.Rating? data.feedback.Rating[data.orderItems[index].id]: starValue[item.id]}
                                     onChange={changeStarFeedback}
                                   />
                                 </Box>
@@ -376,7 +376,7 @@ export default function Index(props) {
                         <input
                           name={data.id}
                           className="input-radius h56"
-                          value={data.feedback? data.feedback.Comment: comment[data.id]}
+                          value={data.feedback.comment? data.feedback.comment: comment[data.id]}
                           onChange={commentChange}
                         />
                       </div>

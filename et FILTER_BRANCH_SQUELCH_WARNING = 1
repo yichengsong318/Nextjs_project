@@ -1,0 +1,1358 @@
+[33mcommit d41bac57cf30445e3e8e9e244db403f53ffc23bf[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/PM[m[33m)[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 24 19:04:48 2020 +0800
+
+    added star functionalities
+
+[33mcommit e26d1d5c8bb80bbbe357be10d29e92726c90f3b2[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 24 17:55:31 2020 +0800
+
+    fixed image delete and changed to postal id, item's id
+
+[33mcommit 0bedccf8abc9738355ada0a965ccf7f215c5dd27[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 24 04:40:07 2020 +0800
+
+    star feedback and comment finished
+
+[33mcommit c0110041c8b7770e36bf679124c5074d3c443a36[m[33m ([m[1;31morigin/feature/PM[m[33m)[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 23 20:15:46 2020 +0800
+
+    profile management route issue
+
+[33mcommit d20db689d6e312e1e3872931b0cd492d53300496[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 23 16:54:11 2020 +0800
+
+    phone verification notification completed
+
+[33mcommit c94bd075b8f79262fe65ae33d90f98d17cd03b94[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 23 15:06:53 2020 +0800
+
+    postal code autocomplete is solved in profile management page
+
+[33mcommit 34e45197a959ad8f79e367bd7402293bfdabb5df[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 23 14:05:14 2020 +0800
+
+    change password issue is solved
+
+[33mcommit e3b1c5dae31399aa5591655c2dabe0fcf2a6b306[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 23 07:41:39 2020 +0800
+
+    upload image function
+
+[33mcommit 8f020008e452c096886535839b712fcabdfd1135[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Tue Sep 22 18:07:10 2020 +0800
+
+    fixed profile management filter issue
+
+[33mcommit 4f8b40b1acf08c6c30fb1afe631f36430ef7c8dc[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Tue Sep 22 16:42:16 2020 +0800
+
+    issue 52 is fixed
+
+[33mcommit 32f9a24b6e38ffb54edf53849fcbca1fd0f2f114[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 21 16:42:31 2020 +0800
+
+    order history page is modified.
+
+[33mcommit 264f4340d10120499b0e38230df97a990cfa65fc[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 21 16:11:34 2020 +0800
+
+    basic info page is finished
+
+[33mcommit 8b55eaf6312f384fe320fb2278b22f9842c78380[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 21 15:14:15 2020 +0800
+
+    get order history page is finished
+
+[33mcommit 3dce8610f44ed0dc2e0422347ee1f5f0f78edb98[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Fri Sep 18 15:14:07 2020 +0800
+
+    datepicker component
+
+[33mcommit 5bcf090914cddd620adc96c41283cdc861677744[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Fri Sep 18 08:42:59 2020 +0800
+
+    province autocomplete is finished
+
+[33mcommit 14b58d84a7df5f17e93b178566f4cf32f121529b[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 17 15:52:10 2020 +0800
+
+    profile update api is added
+
+[33mcommit bee597e37b7fbfa4be2805e58139a9b667bed726[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 17 15:01:45 2020 +0800
+
+    get user details issue
+
+[33mcommit fe2ffe248fc7a38e8c6df24f55190be7ce4b57d4[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 17 08:17:27 2020 +0800
+
+    basic information form modified
+
+[33mcommit ef6d304396527384c340a01ae9c1d110f4923271[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Tue Sep 15 12:50:37 2020 +0800
+
+    order track page
+
+[33mcommit 2d7ba6db1471f4fa68354680ebc184e0bf1c16e5[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 14 07:31:34 2020 +0800
+
+    profile management
+
+[33mcommit abfd5271cc780fbc9f9c323d60fdf0feacefdce2[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Sat Sep 12 03:36:41 2020 +0800
+
+    profile edit static page
+
+[33mcommit e56461080fa3afd5ce3b5cc59e82ab15274aa1d8[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Fri Sep 11 03:10:10 2020 +0800
+
+    static file for profile management is added
+
+[33mcommit 46b3cd2e40f1719f58eb711c2bc38d6a8b8196aa[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 10 07:19:13 2020 +0800
+
+    profile management static file is added
+
+[33mcommit 516019ef83b942faf8099aa5b39e54d91c55dda7[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 9 18:59:37 2020 +0800
+
+    prevent pre-render
+
+[33mcommit 34442ce958042df4e4a986e679db55e5a75df89e[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Tue Sep 8 17:35:45 2020 +0800
+
+    translation error and location error is fixed
+
+[33mcommit eb2f8e77157a535464442127a6191f211b134b26[m
+Merge: 4200de1 2c9bb12
+Author: dode-595 <69541696+dode-595@users.noreply.github.com>
+Date:   Mon Sep 7 23:38:48 2020 +0800
+
+    Merge pull request #33 from mahinthan/dode-fix-last
+    
+    Dode fix last
+
+[33mcommit 2c9bb12e4c4040f5b514ae476db7ee34f009542b[m[33m ([m[1;31morigin/dode-fix-last[m[33m)[m
+Merge: d3c8752 4200de1
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 7 19:45:04 2020 +0800
+
+    Merge branch 'master' of github.com:mahinthan/baristo into dode-fix
+    
+    # Conflicts:
+    #       _constants/cart.constants.js
+    #       components/header/HeaderTop.jsx
+    #       layouts/DefaultLayout.jsx
+
+[33mcommit d3c8752359ccfb75362181126ae6dce0973e4155[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 7 18:07:52 2020 +0800
+
+    modal detail responsive
+
+[33mcommit 5ec579471112d470cd375cefc2a0933e358589d7[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Mon Sep 7 16:06:56 2020 +0800
+
+    layout, shimma, google crawl, meal bod height and meal details page
+
+[33mcommit a9fca69e7efff53079d6db84a5192bde0e2c04e1[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Sat Sep 5 04:59:06 2020 +0800
+
+    serverside rendering issue in index.js page.
+
+[33mcommit ed664dbf5599446857d2813fd80e2efcbe11dff7[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Sat Sep 5 02:01:30 2020 +0800
+
+    language issue is fixed.
+
+[33mcommit cc6d57cdae0c8dbf5b5ae6e6517f50345f2fd7f6[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Fri Sep 4 13:15:10 2020 +0800
+
+    language bug fix
+
+[33mcommit 86da1a2b8cce4bbb2f42020789f70902c0b9d81f[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 21:35:06 2020 +0800
+
+    x scroll removed
+
+[33mcommit afc815635748d8bbf363be5139364695d11f3d09[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 21:26:04 2020 +0800
+
+    translate issue is solved
+
+[33mcommit 8479a5d3100b1554a48d2e173494ca0ae1c29d7a[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 20:29:00 2020 +0800
+
+    translate issue is solved
+
+[33mcommit 79830d0b4096e14f882ca54b5783628afe47f1da[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 14:29:58 2020 +0800
+
+    more view and scroll view
+
+[33mcommit 6d5f975b7671fc37574b49e03e9d7fdcbae490f1[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 11:09:05 2020 +0800
+
+    scroll issue is solved
+
+[33mcommit 0855c5baa448cb53eef8cb28ec772aab96363683[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 08:03:36 2020 +0800
+
+    more view modal is added
+
+[33mcommit c57c42c3cda436240be8dbc179fe898ef915bfbe[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Thu Sep 3 06:23:33 2020 +0800
+
+    address validate
+
+[33mcommit a3ee1a3f4a7c57b09482a0c058437f0dd082e39b[m[33m ([m[1;32mconflict-branch[m[33m)[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 20:13:43 2020 +0800
+
+    issue8 is solved
+
+[33mcommit 4a747a59dbd06453ba510c9b21da8cc0fbd91bc7[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 14:30:30 2020 +0800
+
+    issue8
+
+[33mcommit 01700bd71cd7d26620ca10c08e010f63b5f4fe67[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 12:14:33 2020 +0800
+
+    issue7 is solved
+
+[33mcommit a13ddeb8ab05ef5260f78ac10e022be8b36b11fd[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 10:14:39 2020 +0800
+
+    issue4 is solved
+
+[33mcommit 2d814c1c7cbb1282a0387f90661470441dacf9c5[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 08:05:40 2020 +0800
+
+    issue6 is solved
+
+[33mcommit 47e280c606ee1b981fb31e363463a0e6df4d9376[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 06:59:45 2020 +0800
+
+    more view issue
+
+[33mcommit 87a95c95c0101204913eb58ed1aab8751fbd0eca[m
+Author: dode-595 <kinguser1016@outlook.com>
+Date:   Wed Sep 2 05:30:10 2020 +0800
+
+    issue2 fixed
+
+[33mcommit 342993a3fdb1e8c1a462afc8f19962acbf53ba85[m
+Author: dode <kinguser1016@outlook.com>
+Date:   Tue Sep 1 22:04:00 2020 +0200
+
+    Updated version
+
+[33mcommit 87fed498f96e926dce701a86c97ad717677101ca[m
+Author: dode <kinguser1016@outlook.com>
+Date:   Tue Sep 1 00:04:41 2020 +0200
+
+    Fixed multiple issues v1.0
+
+[33mcommit 4200de13613594953dac582e5b147589cbf155e1[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 25 19:17:27 2020 +0100
+
+    Add: cart details modal
+
+[33mcommit c9648cbcdd4fce0a7dad13b01e07e2d9f2b3e709[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 25 19:17:27 2020 +0100
+
+    Add: cart details modal
+
+[33mcommit 5b646ab71caa95c064aabe7657f175ca336892a4[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 25 18:59:18 2020 +0100
+
+    Add: ability to add items to cart
+
+[33mcommit fec46a75cc0e6d3d4c3fdf9310117d2a03fd294b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 25 18:59:18 2020 +0100
+
+    Add: ability to add items to cart
+
+[33mcommit 80a61d3c50343473b1780c0a347a724329370483[m
+Merge: fa11023 cab74c6
+Author: hamza khchichine <40059557+Hamzakh777@users.noreply.github.com>
+Date:   Tue Aug 25 10:48:11 2020 +0100
+
+    Merge pull request #30 from Hamzakh777/next-i18n
+    
+    Add: translations
+
+[33mcommit 67ee019b18253d43edbd924cdaf4a5c68e5353ca[m
+Merge: fa11023 cab74c6
+Author: hamza khchichine <40059557+Hamzakh777@users.noreply.github.com>
+Date:   Tue Aug 25 10:48:11 2020 +0100
+
+    Merge pull request #30 from Hamzakh777/next-i18n
+    
+    Add: translations
+
+[33mcommit cab74c6d7b9fc0dfe717bb2ae531595dd51e502c[m[33m ([m[1;31morigin/next-i18n[m[33m)[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 25 10:47:21 2020 +0100
+
+    Add: translations
+
+[33mcommit fa110231beb827a9683460fa461f1bcfac45b2be[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 25 09:18:08 2020 +0100
+
+    progress
+
+[33mcommit bb5fb7f017155b37c254c7d8bf4d2847f65ea226[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 19:34:31 2020 +0100
+
+    Add: checkout product card
+
+[33mcommit dd953846dc843268c7da609d4fe3b56c03e802d7[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 19:26:03 2020 +0100
+
+    Add: conditionals to checkout page
+
+[33mcommit bb1bbb6d24f2ee83062f77d9920a0d6fa7fccd46[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 19:12:58 2020 +0100
+
+    Add: rmove ability to chagne delivery type once cart is not empty
+
+[33mcommit 78e750094ac645cb950c21901cce268b127434d7[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 18:57:00 2020 +0100
+
+    Add: checkout modals
+
+[33mcommit a5ee6bf70764ba12063fd9fef229f711a10505a9[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 18:53:42 2020 +0100
+
+    Add: cart button to the navbar
+
+[33mcommit 04362c8c2967628f7a5be2f6210c879a8fa86a27[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 18:42:04 2020 +0100
+
+    Refractor
+
+[33mcommit 40bf38bef9354dd94f39ec78376484c7e202900a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 16:48:19 2020 +0100
+
+    Add: discard button
+
+[33mcommit 7149b9b8d31c96a7c7c8f18c17885589de97ad08[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 16:38:05 2020 +0100
+
+    Add: choose address page
+
+[33mcommit 59f39c5689583581902ceef0816b99b907a0735a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 14:35:40 2020 +0100
+
+    Add: checkout page
+
+[33mcommit 538e91f9de20ab8a1a1f52c37447e6725f7d41b3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 24 11:45:57 2020 +0100
+
+    fixes
+
+[33mcommit bd9b711b3b25f34234cd39839e810725aa8cdaee[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 12 15:56:09 2020 +0100
+
+    Fix: handle 500 error message
+
+[33mcommit af7961cef61c01a7c610af18ff4d64cecd803727[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 12 12:37:04 2020 +0100
+
+    fix(#17): Chefs Story : HTML Description area
+
+[33mcommit 18b915fb3ba25045bb2b0e48a7f19acb6a02dbc2[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 12 12:30:04 2020 +0100
+
+    fix: Branch id is hard coded
+
+[33mcommit 409b056781a01483d540c81315811658ab4bc95d[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 12 12:19:22 2020 +0100
+
+    Fix: logo to be a valid link
+
+[33mcommit 64a35cdabc7b9d65bdd1859485c824a4894d2137[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 12 11:54:01 2020 +0100
+
+    fix(#7): Price & Discount logic for product card
+
+[33mcommit 57ad7ff1ba44d73d9fad38783c6ac11a1383b67d[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 12 11:22:46 2020 +0100
+
+    Fix(11): Meal List UI distorts on filter
+
+[33mcommit e4271fbc4607daf6b7ecc7d6758129d7c6611ac8[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 20:39:56 2020 +0100
+
+    Add; loaylty points
+
+[33mcommit b9dcfb8de2ef4a99764909bcb17f9306250f7a2c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 20:39:04 2020 +0100
+
+    Add: loyalty points
+
+[33mcommit 708b82f40ce142c7d362b66e1f677274f9024688[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 20:32:12 2020 +0100
+
+    Fix: price calculations
+
+[33mcommit a38e6d494e34541087f37bef58da9930b1a053a1[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 20:28:42 2020 +0100
+
+    Add: ability to have different quantities fore different choices
+
+[33mcommit 5b6f1a35ee8392b7edbeb0948b97f2171806ad07[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 20:02:14 2020 +0100
+
+    Fix: show the selected choices
+
+[33mcommit d67d4550a0373d4091b8c7cced839561f93f9a0c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 19:39:55 2020 +0100
+
+    Add: ProductChoices validation
+
+[33mcommit 484a532a68c3ec7150f7b72463252b59fadc5014[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 19:20:06 2020 +0100
+
+    Add: ChoicesSection
+
+[33mcommit 4998df8d2de94a1fd9f012747a0a9f6ffdec9769[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 00:21:55 2020 +0100
+
+    Add: ability to preload products
+
+[33mcommit c22d7b0a602861eb8fe304739051de94a8de950b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 11 00:10:27 2020 +0100
+
+    add
+
+[33mcommit f841b4944da588e57e1c2fbb56ec54449e48c18a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:31:10 2020 +0100
+
+    Fix: clicking on search input should show the filter modal
+
+[33mcommit deb58fb4aa9d463adde37f8503c05ff6212809d5[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:27:31 2020 +0100
+
+    Style: customize meal modal to not shring
+
+[33mcommit 3d317c9d9343df1f4bcc259e7cf769dd2137e257[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:25:46 2020 +0100
+
+    Add: ability to toggle ProductModalConfirmMeal from customize modal
+
+[33mcommit 13cadcea41e72ad5f402e26c433c09d0ad21887f[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:25:26 2020 +0100
+
+    Add: overlay to ProductModalConfirmMeal
+
+[33mcommit 61bb113062df1edd17b73035f70c65d4c93bb29c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:17:12 2020 +0100
+
+    Add: ProductModalCustomizeMeal to ProductsModalsContainer
+
+[33mcommit d37d43c38416e2f557737461c7600beb978b0e1e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:13:07 2020 +0100
+
+    Fix: ProductModalConfirmMeal should be visible
+
+[33mcommit df84c50e8bc1851cefc8c24b5f07cfa609c33a72[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 23:12:18 2020 +0100
+
+    Add: i18n to ProductConfirmModal
+
+[33mcommit e931ca61fbbfc38c73a6a77b8a710cb44a93bbd2[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 22:53:45 2020 +0100
+
+    Add: ability to toggle confirm product modal
+
+[33mcommit 546d18cf534af1e158c628681b584d98951f6b15[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 22:47:38 2020 +0100
+
+    Add: selected toppings to cart store
+
+[33mcommit 0e45005b49ca3a864240010b1830ec51cbbf9d7d[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 22:44:01 2020 +0100
+
+    Add: dynamic content to the customize meal modal
+
+[33mcommit 3d71d8f1586d79267fbba88b257d5d76aeed951c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 21:36:46 2020 +0100
+
+    Add: toppings card to customize meal modal
+
+[33mcommit f160e8448f4e362c30f6643c3769175c86d1c706[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 15:07:47 2020 +0100
+
+    Add: product card v2 to open the product details
+
+[33mcommit 91d05b2b22d16e181b105b6527d625de9f209923[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 14:58:22 2020 +0100
+
+    Style: button to always be aligned to righgt
+
+[33mcommit 27935d5c1bc7fde626d111e70c7dc624f711702b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 14:57:14 2020 +0100
+
+    Add: calculate final price
+
+[33mcommit 4043d328ca8a16496200edc3875ab0af3110025e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 14:38:34 2020 +0100
+
+    Add: ability to switch between delivery and pickup on meals details
+
+[33mcommit e63566ec7bc6c590948025e33b741dce07cda050[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 14:08:23 2020 +0100
+
+    Add: delivery type to cart store
+
+[33mcommit d822e60b3062c9e8e80c0c65c120b4584c518ba3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 12:31:09 2020 +0100
+
+    Add: ability to select a price
+
+[33mcommit cb91489d4d1f1dd88d8eefcaeb2c175d4e8eb802[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 10 11:29:02 2020 +0100
+
+    Multiple changes
+
+[33mcommit ea1f4b2898816c2775dbaa514143e98dc2122bf2[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 20:41:39 2020 +0100
+
+    Add: handle product details through store
+
+[33mcommit 4b4bc081b1beb2218739c89e3523236de2f0325c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 18:51:53 2020 +0100
+
+    Add: cart reducer, constants and actions
+
+[33mcommit 382784c2d1978c945c6e579dcc72cff4367ecb9e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 17:03:19 2020 +0100
+
+    Add: modal directory to products
+
+[33mcommit 73b14a959a8f17626d0ec7ce21c788c6a5da6dde[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 17:03:00 2020 +0100
+
+    Add: prettier config file
+
+[33mcommit e981943103d5c2dcde4c7aa6e3b19d55b385520c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 16:13:04 2020 +0100
+
+    Add: dynamic content to the ProductModalDetails
+
+[33mcommit 68a2af09068952906e648a96b3b58adafc1dd9a4[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 15:55:22 2020 +0100
+
+    Add: ProductModalDetails
+
+[33mcommit 43b2b4101bc362391483b378539caefc6ba83c7f[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 13:12:26 2020 +0100
+
+    Add: ability to toggle the product slider
+
+[33mcommit 706177f6a48d558aa1017df5ec1769bb996bd1a2[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 12:38:52 2020 +0100
+
+    Add: ability to handle clicking 'more' on a product card
+
+[33mcommit e1c98fa93f18a5f244adf1fb844ca8dd9ad83262[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 8 12:30:42 2020 +0100
+
+    Add: ProductSlider and ProductSliderSlide
+
+[33mcommit efe1a574fe4554c24bac53336a275f1eefc1c896[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Aug 7 17:36:16 2020 +0100
+
+    Add: eslint and prettier
+
+[33mcommit 24ce4f0866b1095307beb85eaf538ad47165f4dd[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Aug 7 15:37:33 2020 +0100
+
+    Refractor: remove unnecessary console log statement
+
+[33mcommit 1a2a617a74741c4bfe2489859af9e66337a6e9b0[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Aug 7 12:57:35 2020 +0100
+
+    Add: ability to see another branch
+
+[33mcommit 52406f72c154bc2dffffbf61d3f3fb162bb017aa[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Aug 7 12:28:48 2020 +0100
+
+    Refractor: remove unnecessary pages and use jsx instead of js
+
+[33mcommit 1d485ef3b682b86610e1956022aa02a691c02313[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 23:32:18 2020 +0100
+
+    fix: chef itemcard errors
+
+[33mcommit 5340d32422dad06f828d941f9983784f67e620aa[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 22:11:34 2020 +0100
+
+    Refractor: remove unnecessary comment
+
+[33mcommit 530ca53d2df334e8bc19c4e7fd9f985cb8606b4e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 21:36:58 2020 +0100
+
+    Fix: no category to preslect
+
+[33mcommit 377da60c57a7a707227f3d1e78051b8d0a9b073f[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 20:56:14 2020 +0100
+
+    Add: ability to filter
+
+[33mcommit 62903537c5b845186b810fe4431565384e821258[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 19:46:03 2020 +0100
+
+    Add: ability to select multiple categories
+
+[33mcommit 154a2481b0c794a3d633b70c114628afdd62ec44[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 17:20:46 2020 +0100
+
+    Add: ability to go search page
+
+[33mcommit ce625028a001bb4219e15f8673f1e3fc85c6dd12[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 17:11:21 2020 +0100
+
+    Add: ability to select categories in the filert
+
+[33mcommit 756c49ddc1d3904969604dd690832dade22ae38b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 12:23:34 2020 +0100
+
+    Change: count for each page
+
+[33mcommit 73d81f5cfaeb693765e2defc658a9c5e2ad833ee[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Aug 6 12:23:11 2020 +0100
+
+    Add: pagination for PageSectionMenuMeal
+
+[33mcommit 5a83f5794bbe3be06d1b8e03d3fb1dacfa4da504[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 22:38:15 2020 +0100
+
+    Add: loader
+
+[33mcommit 144c4de81395f5a8ef17785aea188d3405a37b86[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 21:30:02 2020 +0100
+
+    Add: PageSectionMenuDealOfToday
+
+[33mcommit ba1c7fbf60016652f93ccd66c0581b696aed0c08[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 20:27:27 2020 +0100
+
+    Add: useBaseToggleLoader hook
+
+[33mcommit ddea5a3a569d93ffe34bcc1e185a3cc449adbc97[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 20:27:11 2020 +0100
+
+    Refractor: remove unnecessary key
+
+[33mcommit 1f3fb50f45655b1a1549a9a5d9794ced6acb9667[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 17:00:07 2020 +0100
+
+    Fix: phone modal to not always be visible
+
+[33mcommit 4b810db7a9a323d73e298d78fc427015ca94a92c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 16:11:49 2020 +0100
+
+    Add: PageSectionMenuDealOfToday section
+
+[33mcommit 0e5446584e1024dfdd855f3d5cbd7b64fa8209a3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 16:04:57 2020 +0100
+
+    Fix: have only discounted meals as a tab for PageSectionMenuShowcaseSection
+
+[33mcommit 5179c8d2e2c5f56a93643d8a0c17cbc1d41ee363[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 15:15:39 2020 +0100
+
+    Add: interactivity to PageSectionMenuShowcaseSection
+
+[33mcommit 80de6d31592781af016835ab3679fb45517fcd62[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 15:12:05 2020 +0100
+
+    Style: ProductsContainer to be responsive
+
+[33mcommit f9a40b502229a9a22b5f40b651f3c9168cc7fe60[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 14:58:07 2020 +0100
+
+    Add: PageSectionMenuShowcaseSection component
+
+[33mcommit 27decd776d79717d10c78dfbeca85f6cddd048d9[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 14:57:49 2020 +0100
+
+    Add: ProductsContainer component
+
+[33mcommit 912d9dbfffeef2d22afee453e1102a2d538ce524[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 13:47:51 2020 +0100
+
+    refractor: rename the menu gallery page to menu
+
+[33mcommit 60528cd51c91c7cd61492ca65b6618e933ed0954[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 11:15:37 2020 +0100
+
+    Add: gallery page
+
+[33mcommit 16587f1bea1631672b8520b9441396a37e61faff[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 10:58:11 2020 +0100
+
+    Add: query param for branch id to be dynamic
+
+[33mcommit a363323eb6dab4b01b3b0976ce6b7ed3f721f6ed[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 10:53:57 2020 +0100
+
+    Refractor: remove unnecessary import
+
+[33mcommit 9ea55ad0751c3cb47a964c41ec1eb4818095ce20[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 10:53:15 2020 +0100
+
+    Add: custom hook to prefetch necessary datat
+
+[33mcommit 7aca8c83dadadd895d578b88c1b798f626ffc2df[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Aug 5 10:30:40 2020 +0100
+
+    Fix: remove Primise rejection
+
+[33mcommit 41268711493a19384eedb417d001513e312f7965[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 22:24:03 2020 +0100
+
+    Add: refresh token and set axios auth headers on load
+
+[33mcommit bdd0df665969a5106f0b9d74cb44bcb54d76a05d[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 20:45:19 2020 +0100
+
+    Fix: remove the slider and show the cheapest meal with the highest discount
+
+[33mcommit 7bf3839425b7b9c483ddfe7eb0cc9c95f45f8a42[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 19:22:29 2020 +0100
+
+    Add: google maps
+
+[33mcommit 5aac81d2694b4fb3b3753a7a4d75191df8d5ff7e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 19:22:07 2020 +0100
+
+    fix: decode the query
+
+[33mcommit 3c0a086ab33b75b093646ded23377d8fcbf1b282[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 18:16:53 2020 +0100
+
+    Add: see more less button for footer schedules
+
+[33mcommit 66eb6b753ce3d2ceaab783229c937c827fbfc4f3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 18:16:36 2020 +0100
+
+    Add: adaptive height to the product card
+
+[33mcommit 55787abf3221a4eef211dedc49b9800e8c278414[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 16:13:57 2020 +0100
+
+    Add: ability to swipe through a product options
+
+[33mcommit 27f5f70ca0573b7d91f25b0d4eae3d7285a3828c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 15:36:30 2020 +0100
+
+    Add: JSX files
+
+[33mcommit 9f77df1ef4e4674e1bbffcad014cf5ab93fb8eb4[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 12:13:51 2020 +0100
+
+    Fix: phone number is null on first request being sent to the server
+
+[33mcommit b09685489f4b5e362809cbcad99645778e37b01f[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Aug 4 12:01:24 2020 +0100
+
+    Fixes
+
+[33mcommit c5475556e46c91100caeab6fa43f0ad15b31e7c0[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 18:45:01 2020 +0100
+
+    Add: social login
+
+[33mcommit ae0c439dbd7516581d5db16623c5752cf465d25b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 18:38:57 2020 +0100
+
+    Fix: don't show email verification banner for oauth login
+
+[33mcommit 5276224de222ecccd69fb7831bc1d1538c515d5a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 17:55:02 2020 +0100
+
+    Add: show that an email has already been used
+
+[33mcommit 83f523a1773e90bc5bfe55b4379c113d955c2b21[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 16:17:59 2020 +0100
+
+    Add: password reset page
+
+[33mcommit 7a699489f76d04651c50b62e282610a4f318afe6[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 15:29:44 2020 +0100
+
+    Add: confirm email page
+
+[33mcommit 0ddfb42a2ddf35c5c59e274ccd0b3fe14c803063[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 15:19:44 2020 +0100
+
+    fix: set user on start
+
+[33mcommit dbac93684271ec08fcf786a699ad1d29e79a3fb5[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 14:15:41 2020 +0100
+
+    Style: loader imporvements
+
+[33mcommit 13ed10daae4ee33b278aa729a0ce9054e8e36d68[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 14:08:53 2020 +0100
+
+    Add: verify email banner
+
+[33mcommit 35804f1324690a238aa1ad6bb82ff716bdec0e64[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 13:10:17 2020 +0100
+
+    Refractor: remove commented out code
+
+[33mcommit 05513804af3bd5e4fef02d5bbb974fc5971f5d05[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 13:09:29 2020 +0100
+
+    Add: error handleding to verification phone modal
+
+[33mcommit fde3dbd288fc0a93f4a15ab0c87f39a25344d423[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 11:25:39 2020 +0100
+
+    Add: show the phone verification modal if user is not verified
+
+[33mcommit e4fb2bcccb99f46c244d0c21bab5703ab2d55e32[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 11:25:19 2020 +0100
+
+    Refractor: remove unnecessary console log
+
+[33mcommit 9ebf8362d218140c3d363b41f608d03daab992a3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 10:56:11 2020 +0100
+
+    Add: forgot password modal logic
+
+[33mcommit eefaef8d3ecb891508e75cb4fbdfd41d5859e399[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 10:12:04 2020 +0100
+
+    Add: close auth modals when clicking outside of them
+
+[33mcommit 9446c46b4bbfe4da33ae40b00a39fcb1e6c4f9ac[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Aug 3 10:06:38 2020 +0100
+
+    Add: login logic to signin modal
+
+[33mcommit 4eacb12fa4bb4ef896c4ace71938338e02f309e6[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sun Aug 2 21:08:11 2020 +0100
+
+    Add: forgot password modal
+
+[33mcommit 95b0be57a689355bfe79985b2303413198ae6759[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sun Aug 2 20:48:41 2020 +0100
+
+    Add: logic to the validation phone number modal
+
+[33mcommit 42e10ab0d1247fc35846917f32bacb2b2539d378[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sun Aug 2 13:36:46 2020 +0100
+
+    Add: phone verification modal logic
+
+[33mcommit 7745386d4374d5f62317f3b505d2ea22e6c98fee[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 1 21:31:15 2020 +0100
+
+    Add: save user details after login
+
+[33mcommit 969213e7d38eda36f4c262aa309569b86dfff49a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 1 20:31:07 2020 +0100
+
+    Add: validation and ability register the user on sign up form
+
+[33mcommit 179c24d54170e7560c59040f8726a58ae2e96d3b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 1 17:26:35 2020 +0100
+
+    Add: open close logic to sign in modal
+
+[33mcommit 80f08eb2f449989716dd1f7b8e535456c7fcdf2b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 1 16:57:33 2020 +0100
+
+    Add: ability to open close whats this modal
+
+[33mcommit f99d592004a194bd4de6f2df3bcf9e4438d0cfcb[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Sat Aug 1 16:38:30 2020 +0100
+
+    Add: actions to open close registration modal
+
+[33mcommit e5335581817bedfd92ff36767d72654dd4acae56[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 30 21:31:14 2020 +0100
+
+    Refractor: add multiple reducers
+
+[33mcommit 05af4f898bf6c4965d1122ebf029d4d7c81472ab[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 30 21:06:31 2020 +0100
+
+    Add: authentication modals
+
+[33mcommit 2b2e3d61ba881e97220dd6a090154a79d2fbd4d3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 30 16:15:53 2020 +0100
+
+    Refractor: remove unnecessary calls and space
+
+[33mcommit 7fc9b0257c02a3ae299b5b2b5cc7c513b0f77573[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 15:01:57 2020 +0100
+
+    Add: modal to change the branch
+
+[33mcommit 3aafb3e2fd1e4cbd5bdf2c98ae0b89561ceceb5e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 14:16:06 2020 +0100
+
+    Fix: discount should appear if its still in range
+
+[33mcommit feeedbd15a2b159266fb175190acc0a3f75b6c8c[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 12:20:40 2020 +0100
+
+    Add: ProductCard to have dynamic pricing and discount values
+
+[33mcommit 8adac148e98addf2400be28c2f20bc0b0cd85544[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 09:47:14 2020 +0100
+
+    Fix: img on resources section to be loaded from server
+
+[33mcommit 15e86ef2caebef5aed3c7e361f26e0da3b7a45ca[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 09:43:42 2020 +0100
+
+    Fix: use the right translation namespace
+
+[33mcommit f21fbc0d993fcedcb35e9cc25e2673bd7a4f21bf[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 09:26:31 2020 +0100
+
+    Add: show current branch in the header
+
+[33mcommit 70e90446524f0975d2be167c87fc7db9a3da261b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 28 09:20:19 2020 +0100
+
+    Add: search filter modal
+
+[33mcommit 0b77304fa7de5b029a1a83a7176ffaa1f9ef57df[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 12:22:40 2020 +0100
+
+    Add: import logo from API
+
+[33mcommit 9e7a78111d4f796a3be0f23e8975fe306ba625dd[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 11:54:59 2020 +0100
+
+    Fix: remove booking information from the header top
+
+[33mcommit a40eb25e7f78663409fa50ad686ffd386d04061e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 11:14:51 2020 +0100
+
+    Add: translation boilerplate
+
+[33mcommit 85903b9893b23b7c1a48744bfde9acd257594b61[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 10:54:48 2020 +0100
+
+    Add: show/hide delivery availability section dynamically
+
+[33mcommit 3c2871d2053bbde1743d70775e0a67e70814ae72[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 10:36:54 2020 +0100
+
+    Add: footer to show data from the store
+
+[33mcommit 91227f983bd4de1e0a107d8a70271877d10ad7d3[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 09:46:47 2020 +0100
+
+    Add: show hide sections dynamically
+
+[33mcommit 5afc2b9cfa838476f674851127b6e2e7da1b1887[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 09:11:11 2020 +0100
+
+    Add: set current branch
+
+[33mcommit 6c51dee68d5b1f975357c18cebc52c95e6e2c2e7[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 08:49:45 2020 +0100
+
+    Add: hide/show social links on our chef section dynamically
+
+[33mcommit a9d62acc519f4d9f28498db0e66c6c5e105bf793[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 27 08:44:58 2020 +0100
+
+    Add: social media links custom hook
+
+[33mcommit 6779922e843580de09a4f432b1aa22291c0a434a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 17:14:32 2020 +0100
+
+    Add: ability to dynamically load the social links
+
+[33mcommit b33fcd3d272b047ae102870a97f00ed301b82a46[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 17:13:20 2020 +0100
+
+    Add: BaseSocialLink
+
+[33mcommit 8afdec0d39e9c67b1f95149e61d0657316449f6a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 16:26:57 2020 +0100
+
+    Style: cursor pointer on language dropdown
+
+[33mcommit f25666d9968ad9b67bf4010720def8a7ecfb7500[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 16:26:39 2020 +0100
+
+    Add: ability to change language
+
+[33mcommit f4786e1bd1e89baed395d02ad52b257b5bbc6841[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 15:57:14 2020 +0100
+
+    Add: remove footer subscribe form
+
+[33mcommit 8b3219888de9d79b93fdc8f65169ea444cca894b[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 15:54:31 2020 +0100
+
+    Add: load chef images through api
+
+[33mcommit 1e4932a669c8f68688d5e3f93042f56a60b12f58[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 14:27:01 2020 +0100
+
+    Add: ability to search zip codes
+
+[33mcommit 2946effb4bd07443be1269e79684a5d193f85add[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 12:11:32 2020 +0100
+
+    Add: show hide social links on the nav dynamically
+
+[33mcommit 371fb8584d507ae87530236c4f97e12336b4e762[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Fri Jul 24 12:08:08 2020 +0100
+
+    Add: open close language dropdown on the navbar
+
+[33mcommit 3d589c5671820b1349c9594e4463a64ce28577f7[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 23:24:31 2020 +0100
+
+    Add: fetch settings from server
+
+[33mcommit 8399ddbd0b3ee8dcd18ee9b70b19457bcc67ef0f[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 14:13:01 2020 +0100
+
+    Add: bg image to load from API
+
+[33mcommit c3f590637198b1204d8c65b33e2d89e53ef6d5ee[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 14:12:51 2020 +0100
+
+    Fix: key for list
+
+[33mcommit dbd8ca9ecee3e7b0a992d20d4ec19c5a354d370d[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 14:12:12 2020 +0100
+
+    Add: our chef to load from API
+
+[33mcommit 468797a095ef679b5f9e868198947b0caa66e526[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 13:36:34 2020 +0100
+
+    Add: our restaurant load through api
+
+[33mcommit 394f62dd2db5804a16bf85d5130b884de23abd8e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 13:29:18 2020 +0100
+
+    Add: load chef products from API
+
+[33mcommit c3c1a9d01bccde23df0eb9bbabc0ba9eebd093ae[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Thu Jul 23 12:53:17 2020 +0100
+
+    Add: fetch special cruises from server
+
+[33mcommit 7b3cfd7bb696f083a706292bff602b7861c676be[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Jul 22 18:16:16 2020 +0100
+
+    Add: fetch data on SSR
+
+[33mcommit 23dcc0bbf3bf58ee763bb744470beb52eca847cf[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Jul 22 16:11:22 2020 +0100
+
+    Add: hero to fetch data from server
+
+[33mcommit ef0d685a789776b4ef2f36381160782f61cd07f6[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Jul 22 15:58:56 2020 +0100
+
+    Fix: remove tab index
+
+[33mcommit 131f9119f65bc5cf4ea2d02092d04e0b95a48196[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Jul 22 15:50:08 2020 +0100
+
+    Fix: className instead of class
+
+[33mcommit 3a42a706a60173fe961205d0e0be4414bb3fc733[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Wed Jul 22 13:33:28 2020 +0100
+
+    Fix: no space between hero slides
+
+[33mcommit 9b5073aea075681c0649bf27aa7c7dd04a90173f[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 17:44:40 2020 +0100
+
+    Add: hero slider
+
+[33mcommit a785dd497e7b2e61e47ce387c167ea309e3df2af[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 15:21:06 2020 +0100
+
+    Add: PageSectionIndexHero
+
+[33mcommit e10f165d9343a4c4db178017815a8e3d295d1a8e[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 13:17:27 2020 +0100
+
+    Add: PageSectionIndexOurLocation
+
+[33mcommit cb3509ab8693b6dfdc455469df6a87740faf1feb[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 13:08:51 2020 +0100
+
+    Add: PageSectionIndexOurChef
+
+[33mcommit eca84c17075eef8feccd7525ca1fec114b2596d5[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 12:30:58 2020 +0100
+
+    Add: PageSectionIndexOurResource
+
+[33mcommit 62e8e53528794f71abb2e6fb450f51cdeacb316d[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 12:27:18 2020 +0100
+
+    Add: PageSectionIndexOurRestaurant
+
+[33mcommit 69755b6561531545bed5525e01f5218013fa3e68[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 12:21:52 2020 +0100
+
+    Add: PageSectionIndexDeliveryAvailability
+
+[33mcommit 64c0becd148acc2538f766aa4e7640da6fe1deee[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 12:13:47 2020 +0100
+
+    Add: various index sections
+
+[33mcommit b59247bc069b83e5b0a47702d495b67f933830f6[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 12:00:55 2020 +0100
+
+    Add: TheFooter component
+
+[33mcommit 466c4ac416b668ce3821640548bd6d60004f3dde[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 11:07:53 2020 +0100
+
+    Add: Header
+
+[33mcommit 13f5e512bc827e6763abea6b04e06ee7c0d45c02[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Tue Jul 21 10:48:49 2020 +0100
+
+    Add: assets
+
+[33mcommit ce820ba0d57911e2bcb7ab3074f820deb2674b7a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 20 15:02:13 2020 +0100
+
+    first commit
+
+[33mcommit 0f915eecdb1f30913bf092b5a9c36e60bdb3a83a[m
+Author: Hamza <hamzabitup@gmail.com>
+Date:   Mon Jul 20 14:54:05 2020 +0100
+
+    Initial commit from Create Next App

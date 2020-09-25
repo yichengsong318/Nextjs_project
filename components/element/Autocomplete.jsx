@@ -18,10 +18,8 @@ function Autocomplete(props) {
   } = values;
 
   let { suggestions, getValue } = props;
-
+  console.log('+++++++++++++++++', suggestions);
   useEffect(() => {
-    debugger;
-    console.log(suggestions);
     return setValues({
       ...values,
       filteredSuggestions: suggestions,
@@ -31,13 +29,14 @@ function Autocomplete(props) {
   const onChange = (e) => {
     let userInput = e.currentTarget.value;
     getValue(userInput);
-    debugger;
-    console.log(suggestions);
+    console.log('+++++++++++++++++1111', props.suggestions);
     // Filter our suggestions that don't contain the user's input
     let filteredSuggestions = suggestions.filter(
       (suggestion) =>
         suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1,
     );
+    console.log('+++++++++++++++++2222', filteredSuggestions);
+
     setValues({
       ...values,
       filteredSuggestions,
@@ -88,34 +87,13 @@ function Autocomplete(props) {
       });
     }
   };
-
-  let suggestionsListComponent;
-
-  if (showSuggestions && userInput) {
-    if (filteredSuggestions.length) {
-      suggestionsListComponent = (
-        <ul class="auto-complete-suggestions">
-          {filteredSuggestions.map((suggestion, index) => {
-            let className;
-
-            // Flag the active suggestion with a class
-            if (index === activeSuggestion) {
-              className = 'suggestion-active';
-            }
-
-            return (
-              <li className={className} key={suggestion} onClick={onClick}>
-                {suggestion}
-              </li>
-            );
-          })}
-        </ul>
-      );
-    } else {
-      suggestionsListComponent = <div class="no-suggestions"></div>;
-    }
-  }
-
+  useEffect(() => {
+    console.log("---------****************--------", filteredSuggestions)
+  })
+  // const getlist = () => {
+  //   let comp = filteredSuggestions.map((data) => <li>{data}</li> )
+  //   return comp
+  // }
   return (
     <Fragment>
       <input
@@ -126,7 +104,15 @@ function Autocomplete(props) {
         onKeyDown={onKeyDown}
         value={userInput}
       />
-      {suggestionsListComponent}
+        <ul class="auto-complete-suggestions">
+          {filteredSuggestions.map((data) => 
+                <li onClick={onClick}>
+                  {data}
+                </li>
+            )}
+            <li>this is thest</li>
+            {/* {getlist()} */}
+        </ul>
     </Fragment>
   );
 }
